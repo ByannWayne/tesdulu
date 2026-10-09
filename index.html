@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandingin - Jasa Digital Marketing & Web Creation</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #5c0018; /* Darker Burgundy / Maroon */
+            --primary-dark: #3b000f;
+            --accent: #870021;
+            --maroon-light: #fbebee;
+            --dark: #1a1012;
+            --light: #fff8f8;
+            --gray: #6b5c5f;
+            --card-bg: #ffffff;
+            --border: #f0c9d1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 248, 248, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        /* Cropped logo asset: keep navbar compact without changing the logo design */
+        .nav-container .logo img {
+            display: block;
+            width: 105px;
+            height: auto;
+            max-height: none;
+            object-fit: contain;
+        }
+
+        /* Footer logo: same artwork, with a light background so the dark mark is visible */
+        footer .logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light);
+            border-radius: 10px;
+            padding: 6px 10px;
+        }
+
+        footer .logo img {
+            display: block;
+            width: 105px;
+            height: auto;
+            max-height: none;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.65rem 1rem;
+            }
+
+            .nav-container .logo img {
+                width: 95px;
+            }
+
+            footer .logo img {
+                width: 105px;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(92, 0, 24, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(92, 0, 24, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--border);
+            color: var(--dark);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-card-glow {
+            background: linear-gradient(135deg, rgba(92,0,24,0.08), rgba(135,0,33,0.08));
+            padding: 3rem;
+            border-radius: 2rem;
+            border: 1px solid var(--border);
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(92,0,24,0.05);
+        }
+
+        .hero-card-glow i {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Packages Grid */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: var(--card-bg);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(92,0,24,0.02);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .package-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: 0 20px 40px rgba(92, 0, 24, 0.12);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .package-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .package-features li i {
+            color: #10b981;
+        }
+
+        .package-features li i.fa-times {
+            color: #ef4444;
+        }
+
+        .btn-package {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 12px;
+            border: none;
+            background: var(--maroon-light);
+            color: var(--primary);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .package-card.featured .btn-package {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: 0 4px 14px rgba(92, 0, 24, 0.3);
+        }
+
+        .package-card .btn-package:hover {
+            opacity: 0.9;
+        }
+
+        /* Additional Services */
+        .addon-section {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            margin-top: 3rem;
+            border: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .addon-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+        }
+
+        .addon-list {
+            list-style: none;
+        }
+
+        .addon-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+            gap: 1rem;
+        }
+
+        /* Brands We've Handled Section - Exact 4 columns layout */
+        .brands-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 2rem;
+            padding: 5rem 3rem;
+            margin: 4rem auto;
+            color: white;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(92, 0, 24, 0.2);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem 2rem;
+            max-width: 850px;
+            margin: 3rem auto 0;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .brand-item {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3.5px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+            display: block;
+            text-decoration: none;
+            background: white;
+        }
+
+        .brand-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .brand-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(92, 0, 24, 0.92);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 0.6rem;
+            text-align: center;
+        }
+
+        .brand-overlay span {
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+        }
+
+        .brand-overlay i {
+            color: #ffb3c1;
+            font-size: 1.1rem;
+        }
+
+        .brand-item:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.35);
+            border-color: #ffffff;
+        }
+
+        .brand-item:hover .brand-overlay {
+            opacity: 1;
+        }
+
+        .brand-item:hover img {
+            transform: scale(1.12);
+        }
+
+        /* Team / Portfolio Section (6 Members with Photos) */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(92,0,24,0.08);
+        }
+
+        .team-photo-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 2rem auto 1rem;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+            box-shadow: 0 8px 20px rgba(92,0,24,0.15);
+        }
+
+        .team-photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+
+        .team-role {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            padding: 0 1.5rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .team-portfolio {
+            font-size: 0.8rem;
+            background: var(--maroon-light);
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Portfolio CTA + clickable team profiles */
+        .portfolio-cta-wrap { display:flex; justify-content:center; margin: -1rem 0 2.5rem; }
+        .portfolio-cta { display:inline-flex; align-items:center; justify-content:center; gap:.65rem; padding:.9rem 1.35rem; border-radius:999px; background:var(--primary); color:#fff; text-decoration:none; font-weight:700; box-shadow:0 10px 24px rgba(92,0,24,.16); transition:transform .25s, background .25s; }
+        .portfolio-cta:hover { background:var(--primary-dark); transform:translateY(-3px); }
+        .team-card { cursor:pointer; position:relative; }
+        .team-card:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
+        .team-card .profile-hint { display:flex; align-items:center; justify-content:center; gap:.4rem; margin-top:1rem; color:var(--primary); font-size:.82rem; font-weight:700; }
+        .profile-modal { position:fixed; inset:0; z-index:2000; display:none; align-items:center; justify-content:center; padding:1rem; background:rgba(25,5,12,.68); backdrop-filter:blur(6px); }
+        .profile-modal.show { display:flex; }
+        .profile-dialog { position:relative; width:min(100%,560px); max-height:88vh; overflow:auto; background:#fffafa; border:1px solid var(--border); border-radius:1.5rem; padding:2rem; box-shadow:0 25px 80px rgba(0,0,0,.25); }
+        .profile-close { position:absolute; top:1rem; right:1rem; border:0; width:40px; height:40px; border-radius:50%; background:var(--maroon-light); color:var(--primary); cursor:pointer; font-size:1.1rem; }
+        .profile-kicker { color:var(--primary); text-transform:uppercase; letter-spacing:.12em; font-size:.75rem; font-weight:800; margin-bottom:.45rem; }
+        .profile-dialog h3 { font-size:1.65rem; line-height:1.2; margin:0 2rem .35rem 0; color:var(--dark); }
+        .profile-dialog .profile-role { color:var(--primary); font-weight:700; margin-bottom:1rem; }
+        .profile-dialog p { color:var(--gray); margin-bottom:1rem; }
+        .profile-skills { display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0 1.5rem; }
+        .profile-skills span { background:var(--maroon-light); color:var(--primary); border-radius:999px; padding:.4rem .75rem; font-size:.82rem; font-weight:700; }
+        .profile-dialog .portfolio-cta { margin-top:.25rem; }
+        @media (max-width:600px) { .profile-dialog { padding:1.5rem 1.2rem; border-radius:1.2rem; } .portfolio-cta { width:100%; text-align:center; } .portfolio-cta-wrap { margin-top:0; padding:0 .25rem; } }
+
+        /* Footer: multi-column layout inspired by the reference */
+        footer {
+            background:#38010e;
+            color: #f8fafc;
+            padding: 4.25rem 2rem 1.5rem;
+            text-align: left;
+        }
+
+        .footer-content {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(280px, 1.7fr) repeat(3, minmax(145px, 1fr));
+            align-items: start;
+            gap: clamp(2rem, 4vw, 4.5rem);
+            border-bottom: 1px solid rgba(148,163,184,.18);
+            padding-bottom: 3rem;
+        }
+
+        .footer-brand { min-width: 0; }
+        .footer-brand .logo { margin-bottom: 1.25rem; }
+        .footer-brand p {
+            max-width: 470px;
+            color: #94a3b8;
+            line-height: 1.85;
+            margin-bottom: 1.35rem;
+            font-size: .98rem;
+        }
+        .footer-column h3 {
+            color: #f8fafc;
+            font-size: 1.03rem;
+            font-weight: 800;
+            margin: .15rem 0 1.45rem;
+        }
+        .footer-column ul { list-style: none; padding: 0; margin: 0; }
+        .footer-column li { margin: 0 0 .85rem; }
+        .footer-column a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: .96rem;
+            transition: color .2s ease, padding-left .2s ease;
+        }
+        .footer-column a:hover { color: #fff; padding-left: 3px; }
+        .social-icons { display: flex; flex-wrap: wrap; gap: .8rem; }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            background: rgba(148,163,184,.12);
+            color: #cbd5e1;
+            font-size: 1.15rem;
+            text-decoration: none;
+            transition: background .25s ease, color .25s ease, transform .25s ease;
+        }
+        .social-icons a:hover { background: #334155; color: #fff; transform: translateY(-3px); }
+        .copyright {
+            max-width: 1440px;
+            margin: 1.35rem auto 0;
+            color: #64748b;
+            font-size: .85rem;
+            text-align: center;
+        }
+
+        @media (max-width: 1000px) {
+            .footer-content { grid-template-columns: minmax(240px, 1.4fr) repeat(2, minmax(150px, 1fr)); }
+            .footer-brand { grid-column: 1 / -1; }
+            .footer-brand p { max-width: 620px; }
+        }
+        @media (max-width: 620px) {
+            footer { padding: 3rem 1.25rem 1.25rem; }
+            .footer-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.25rem; padding-bottom: 2rem; }
+            .footer-brand { grid-column: 1 / -1; }
+            .footer-column h3 { font-size: .98rem; margin-bottom: 1rem; }
+            .footer-column a { font-size: .9rem; }
+            .footer-column li { margin-bottom: .7rem; }
+            .copyright { font-size: .78rem; line-height: 1.7; }
+        }
+
+        /* ---------------- Chatbot Widget Styles ---------------- */
+        .chatbot-toggler {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(92,0,24,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            z-index: 9999;
+            transition: transform 0.3s ease;
+        }
+
+        .chatbot-toggler:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-popup {
+            position: fixed;
+            bottom: 90px;
+            right: 25px;
+            width: 380px;
+            max-width: calc(100vw - 30px);
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 40px rgba(92,0,24,0.25);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .chat-popup.show {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .chat-header-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .chat-header-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .chat-header-info span {
+            font-size: 0.75rem;
+            color: #ffb3c1;
+            display: block;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            padding: 1rem;
+            height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: #fffafa;
+        }
+
+        .chat-message {
+            max-width: 80%;
+            padding: 0.8rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            white-space: pre-line;
+        }
+
+        .chat-message.bot {
+            background: white;
+            color: var(--dark);
+            border: 1px solid var(--border);
+            align-self: flex-start;
+            border-bottom-left-radius: 0.2rem;
+        }
+
+        .chat-message.user {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 0.2rem;
+        }
+
+        .quick-replies {
+            padding: 0.5rem 1rem;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            background: white;
+            border-top: 1px solid var(--border);
+        }
+
+        .quick-reply-btn {
+            background: var(--maroon-light);
+            color: var(--primary);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .quick-reply-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .chat-footer {
+            padding: 0.8rem 1rem;
+            background: white;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .chat-footer input:focus {
+            border-color: var(--primary);
+        }
+
+        .chat-footer button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .chat-footer button:hover {
+            background: var(--accent);
+        }
+
+        /* ---------------- Mobile Responsiveness Enhancements ---------------- */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 8rem 1.5rem 4rem;
+                gap: 2.5rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .addon-section {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+            }
+            .nav-links {
+                display: none; /* Can be enhanced or hidden on mobile */
+            }
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 3rem 1rem;
+            }
+            .brands-section {
+                padding: 3rem 1rem;
+                border-radius: 1.2rem;
+            }
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem 1rem;
+                max-width: 100%;
+            }
+            .brand-item {
+                width: 105px;
+                height: 105px;
+            }
+            .chat-popup {
+                width: calc(100vw - 20px);
+                right: 10px;
+                bottom: 80px;
+            }
+            .chatbot-toggler {
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .package-card {
+                padding: 1.8rem 1.2rem;
+            }
+            .brand-item {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        /* Brandingin visual refresh: photo-led, interactive and responsive */
+        html { scroll-padding-top: 92px; }
+        header { box-shadow: 0 8px 28px rgba(59,0,15,.035); }
+        .nav-container { min-height: 86px; }
+        .menu-toggle { display:none; border:1px solid var(--border); background:#fff; color:var(--primary); width:42px; height:42px; border-radius:12px; font-size:1.1rem; cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+        .nav-links a { position:relative; padding:8px 0; }
+        .nav-links a::after { content:""; position:absolute; left:0; bottom:0; height:2px; width:0; background:var(--primary); transition:width .25s ease; }
+        .nav-links a:hover::after { width:100%; }
+        .hero { max-width:1280px; min-height:690px; padding:9.2rem 2rem 5rem; gap:3rem; }
+        .hero-content { position:relative; z-index:2; }
+        .eyebrow,.section-kicker { display:inline-flex; align-items:center; gap:.55rem; color:var(--primary); font-size:.76rem; font-weight:800; letter-spacing:.16em; margin-bottom:1.2rem; }
+        .eyebrow { padding:.55rem .85rem; background:#f8e8ec; border:1px solid #f1d1d9; border-radius:99px; }
+        .eyebrow-dot { width:7px; height:7px; border-radius:50%; background:#b62d52; box-shadow:0 0 0 4px rgba(182,45,82,.12); }
+        .hero-content h1 { font-size:clamp(2.8rem,5vw,4.55rem); letter-spacing:-.055em; line-height:1.06; max-width:650px; margin-bottom:1.4rem; }
+        .hero-content h1 span,.heading-accent { color:var(--primary); }
+        .hero-content p { max-width:560px; line-height:1.85; font-size:1.05rem; }
+        .hero-buttons { gap:.8rem; }
+        .hero-buttons .cta-btn,.hero-buttons .btn-outline { padding:.85rem 1.25rem; }
+        .hero-proof { display:flex; align-items:center; gap:.8rem; margin-top:2.2rem; }
+        .proof-avatars { display:flex; padding-left:5px; }
+        .proof-avatars span { width:31px; height:31px; display:grid; place-items:center; margin-left:-5px; border:2px solid var(--light); border-radius:50%; background:#5c0018; color:#fff; font-size:.68rem; font-weight:800; }
+        .proof-avatars span:nth-child(2) { background:#c17b88; }.proof-avatars span:nth-child(3) { background:#f0dce1; color:var(--primary); }
+        .hero-proof strong,.hero-proof small { display:block; }.hero-proof strong { font-size:.85rem; }.hero-proof small { color:var(--gray); font-size:.75rem; margin-top:2px; }
+        .hero-visual { position:relative; min-height:470px; isolation:isolate; }
+        .hero-photo { position:absolute; overflow:hidden; border-radius:26px; background:#f0dfe3; box-shadow:0 24px 65px rgba(75,0,20,.16); }
+        .hero-photo img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1); }
+        .hero-photo:hover img { transform:scale(1.06); }
+        .hero-photo-main { width:76%; height:390px; right:8%; top:15px; transform:rotate(2deg); }
+        .hero-photo-main::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 48%,rgba(36,0,10,.38)); pointer-events:none; }
+        .hero-photo-small { width:43%; height:210px; left:0; bottom:12px; border:7px solid var(--light); transform:rotate(-5deg); }
+        .photo-tag { position:absolute; bottom:22px; left:22px; z-index:1; color:#fff; font-size:.8rem; font-weight:700; letter-spacing:.02em; }
+        .photo-tag i { margin-right:7px; }
+        .hero-floating-card { position:absolute; right:0; bottom:44px; display:flex; align-items:center; gap:.7rem; padding:.85rem 1rem; background:rgba(255,255,255,.96); border:1px solid rgba(255,255,255,.8); border-radius:17px; box-shadow:0 14px 40px rgba(45,0,12,.13); z-index:3; animation:floatCard 5s ease-in-out infinite; }
+        .floating-icon { width:38px; height:38px; display:grid; place-items:center; border-radius:12px; background:#f8e8ec; color:var(--primary); }
+        .hero-floating-card strong,.hero-floating-card small { display:block; }.hero-floating-card strong { font-size:.83rem; }.hero-floating-card small { font-size:.7rem; color:var(--gray); }.floating-arrow { color:var(--primary); margin-left:.35rem; }
+        .hero-orbit { position:absolute; border:1px solid rgba(92,0,24,.12); border-radius:50%; z-index:-1; }.orbit-one { width:420px;height:420px;right:-20px;top:0; }.orbit-two { width:490px;height:490px;right:-55px;top:-35px; }
+        @keyframes floatCard { 0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)} }
+        .stats-strip { max-width:1120px; margin:0 auto 2rem; padding:1.35rem 2rem; display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:0 15px 40px rgba(92,0,24,.045); }
+        .stats-strip div { display:flex; align-items:center; justify-content:center; gap:.7rem; border-right:1px solid var(--border); }.stats-strip div:last-child { border:0; }.stats-strip strong { font-size:1.2rem; color:var(--primary); }.stats-strip span { font-size:.82rem; font-weight:600; }
+        .service-showcase { max-width:1280px; }
+        .section-header { margin-bottom:2.5rem; }.section-header h2 { letter-spacing:-.04em; }.service-visual-grid { display:grid; grid-template-columns:1.15fr 1fr 1fr; gap:1.1rem; }
+        .service-visual-card { position:relative; min-height:365px; overflow:hidden; border-radius:23px; background:#3b000f; isolation:isolate; box-shadow:0 15px 40px rgba(59,0,15,.1); }
+        .service-visual-card img { width:100%; height:100%; position:absolute; inset:0; object-fit:cover; z-index:-2; transition:transform .7s ease; }.service-visual-card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(25,0,8,.03) 5%,rgba(25,0,8,.88) 100%); z-index:-1; }.service-visual-card:hover img { transform:scale(1.07); }
+        .service-visual-overlay { position:absolute; left:0; right:0; bottom:0; padding:1.6rem; color:#fff; }.service-visual-overlay span { font-size:.68rem; letter-spacing:.14em; font-weight:800; color:#f4bdca; }.service-visual-overlay h3 { font-size:1.45rem; line-height:1.2; margin:.6rem 0; letter-spacing:-.03em; }.service-visual-overlay p { font-size:.87rem; color:#f7e8eb; max-width:330px; line-height:1.7; }.service-visual-overlay a { display:grid; place-items:center; position:absolute; right:1.4rem; top:1.3rem; width:38px; height:38px; border-radius:50%; color:var(--primary); background:#fff; text-decoration:none; transition:transform .25s; }.service-visual-overlay a:hover { transform:rotate(45deg); }
+        .package-card:hover { transform:translateY(-8px); box-shadow:0 22px 50px rgba(92,0,24,.11); }
+        .brands-section { overflow:hidden; }
+        .team-card { box-shadow:0 12px 35px rgba(92,0,24,.035); }.team-photo-container img { transition:transform .5s; }.team-card:hover .team-photo-container img { transform:scale(1.08); }
+        .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }.reveal.is-visible { opacity:1; transform:translateY(0); }
+        .back-to-top { position:fixed; right:26px; bottom:94px; z-index:900; width:42px; height:42px; border:1px solid var(--border); border-radius:50%; background:#fff; color:var(--primary); box-shadow:0 8px 25px rgba(59,0,15,.12); cursor:pointer; opacity:0; pointer-events:none; transform:translateY(8px); transition:all .25s; }.back-to-top.visible { opacity:1; pointer-events:auto; transform:translateY(0); }
+        .cta-btn:focus-visible,.btn-outline:focus-visible,.menu-toggle:focus-visible,.nav-links a:focus-visible { outline:3px solid #d98b9d; outline-offset:4px; }
+        @media (max-width: 992px) {
+            .hero { min-height:auto; padding-top:8.5rem; grid-template-columns:1fr 1fr; gap:1.5rem; }
+            .hero-visual { min-height:400px; }.hero-photo-main { height:325px; }.hero-photo-small { height:170px; }.hero-content h1 { font-size:clamp(2.5rem,5vw,3.5rem); }
+            .stats-strip { margin-left:1.5rem; margin-right:1.5rem; }.service-visual-grid { grid-template-columns:1fr 1fr; }.service-visual-card:first-child { grid-column:span 2; min-height:330px; }
+            .nav-links { gap:1rem; }
+        }
+        @media (max-width: 768px) {
+            .nav-container { min-height:72px; padding:.65rem 1rem; gap:.7rem; position:relative; }
+            .menu-toggle { position:relative; z-index:1002; flex-shrink:0; pointer-events:auto; }
+            .nav-container .logo img { width:105px; }
+            .menu-toggle { display:inline-grid; place-items:center; margin-left:auto; order:2; }
+            header .cta-btn { padding:.65rem .85rem; font-size:.82rem; order:3; }
+            .nav-links { display:none !important; visibility:hidden; opacity:0; pointer-events:none; position:absolute; left:12px; right:12px; top:calc(100% + 8px); flex-direction:column; align-items:stretch; gap:0; padding:.5rem; background:rgba(255,255,255,.99); border:1px solid var(--border); border-radius:16px; box-shadow:0 18px 45px rgba(59,0,15,.18); z-index:1001; }
+            .nav-links.open { display:flex !important; visibility:visible; opacity:1; pointer-events:auto; }.nav-links li a { display:block; padding:.9rem 1rem; border-radius:10px; min-height:44px; }.nav-links li a:hover { background:#fbebee; }.nav-links a::after { display:none; }
+            .hero { grid-template-columns:1fr; text-align:left; padding:7.4rem 1.2rem 3rem; gap:1.4rem; }.hero-content h1 { font-size:clamp(2.6rem,10vw,4rem); }.hero-content p { font-size:1rem; }.hero-buttons { justify-content:flex-start; }.hero-visual { min-height:360px; margin:0 .2rem; }.hero-photo-main { width:78%; height:300px; right:7%; }.hero-photo-small { width:43%; height:155px; }.hero-floating-card { bottom:20px; right:-2px; }.orbit-one { width:300px;height:300px;right:-5px; }.orbit-two { width:350px;height:350px;right:-25px; }
+            .stats-strip { grid-template-columns:1fr 1fr; padding:1rem; gap:.2rem; margin:0 1rem 1rem; }.stats-strip div { justify-content:flex-start; padding:.75rem .35rem; border-right:0; }.stats-strip span { font-size:.76rem; }
+            .service-visual-grid { grid-template-columns:1fr; }.service-visual-card:first-child { grid-column:auto; }.service-visual-card { min-height:330px; }.section-header { margin-bottom:2rem; }
+            .nav-links { z-index:2; }
+        }
+        @media (max-width: 480px) {
+            .nav-container .logo img { width:94px; }.menu-toggle { width:38px;height:38px; }.hero { padding-left:1rem;padding-right:1rem; }.hero-content h1 { font-size:2.55rem; }.hero-buttons .cta-btn,.hero-buttons .btn-outline { padding:.75rem .95rem;font-size:.88rem; }.hero-visual { min-height:310px; }.hero-photo-main { height:255px; }.hero-photo-small { height:125px;border-width:5px; }.hero-floating-card { padding:.65rem .75rem; }.floating-icon { width:32px;height:32px; }.hero-floating-card strong { font-size:.75rem; }.hero-floating-card small { font-size:.65rem; }.photo-tag { left:14px;bottom:14px;font-size:.7rem; }.service-visual-card { min-height:300px; }.service-visual-overlay { padding:1.2rem; }.service-visual-overlay h3 { font-size:1.25rem; }
+            .addon-section { padding:1.2rem; }.addon-list li { font-size:.85rem; }.section-header h2 { font-size:1.8rem; }
+        }
+        @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; }.reveal { opacity:1; transform:none; } }
+
+
+        /* Full portfolio gallery: separate from the team profile cards */
+        .portfolio-gallery-section { max-width:1280px; }
+        .portfolio-gallery-section .section-header { max-width:760px; margin:0 auto 2.4rem; }
+        .portfolio-gallery-section .section-header p { max-width:700px; margin:0 auto; }
+        .portfolio-gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.15rem; }
+        .portfolio-slide { display:block; overflow:hidden; width:100%; padding:0; border:1px solid var(--border); border-radius:18px; background:#fff; color:var(--dark); text-align:left; cursor:pointer; box-shadow:0 12px 32px rgba(59,0,15,.055); transition:transform .25s, box-shadow .25s, border-color .25s; }
+        .portfolio-slide:hover { transform:translateY(-5px); box-shadow:0 20px 42px rgba(59,0,15,.13); border-color:#d9a0ad; }
+        .portfolio-slide:focus-visible { outline:3px solid #d98b9d; outline-offset:4px; }
+        .portfolio-slide-image { display:block; position:relative; aspect-ratio:16/9; overflow:hidden; background:#f4e7ea; }
+        .portfolio-slide-image::after { content:"Klik untuk memperbesar"; position:absolute; inset:auto 0 0; padding:1.7rem .85rem .7rem; color:#fff; font-size:.75rem; font-weight:700; opacity:0; background:linear-gradient(transparent,rgba(30,0,8,.75)); transition:opacity .25s; }
+        .portfolio-slide:hover .portfolio-slide-image::after { opacity:1; }
+        .portfolio-slide-image img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .45s; }
+        .portfolio-slide:hover .portfolio-slide-image img { transform:scale(1.035); }
+        .portfolio-slide-meta { display:flex; align-items:center; gap:.75rem; padding:.9rem 1rem; min-height:80px; }
+        .portfolio-slide-number { display:grid; place-items:center; flex:0 0 38px; width:38px; height:38px; border-radius:12px; background:var(--maroon-light); color:var(--primary); font-weight:800; font-size:.8rem; }
+        .portfolio-slide-meta strong,.portfolio-slide-meta small { display:block; }
+        .portfolio-slide-meta strong { font-size:.9rem; line-height:1.3; }
+        .portfolio-slide-meta small { margin-top:.22rem; color:var(--gray); font-size:.72rem; line-height:1.45; }
+        .portfolio-slide-meta > span:nth-child(2) { min-width:0; flex:1; }
+        .portfolio-slide-meta > i { color:var(--primary); font-size:.85rem; }
+        .portfolio-gallery-footer { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:1rem; margin-top:2.2rem; text-align:center; }
+        .portfolio-gallery-footer p { color:var(--gray); }
+        .portfolio-gallery-footer .portfolio-cta { margin:0; }
+        .portfolio-viewer { position:fixed; inset:0; z-index:2000; display:flex; align-items:center; justify-content:center; gap:1rem; padding:5rem 4.5rem 2rem; background:rgba(25,5,10,.94); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s, visibility .2s; }
+        .portfolio-viewer.show { opacity:1; visibility:visible; pointer-events:auto; }
+        .portfolio-viewer-figure { display:flex; flex-direction:column; align-items:center; gap:.8rem; width:min(100%,1100px); max-height:100%; margin:0; }
+        .portfolio-viewer-figure img { display:block; max-width:100%; max-height:calc(100vh - 190px); object-fit:contain; border-radius:8px; box-shadow:0 18px 65px rgba(0,0,0,.35); }
+        .portfolio-viewer-figure figcaption { display:flex; flex-wrap:wrap; justify-content:center; align-items:baseline; gap:.55rem 1rem; color:#fff; text-align:center; }
+        .portfolio-viewer-figure figcaption span { color:#efb9c5; font-size:.8rem; font-weight:800; }
+        .portfolio-viewer-figure figcaption strong { font-size:1rem; }
+        .portfolio-viewer-figure figcaption small { width:100%; color:#e6d5d9; font-size:.82rem; }
+        .portfolio-viewer-close,.portfolio-viewer-nav { position:absolute; display:grid; place-items:center; width:46px; height:46px; border:1px solid rgba(255,255,255,.3); border-radius:50%; color:#fff; background:rgba(255,255,255,.12); cursor:pointer; transition:background .2s, transform .2s; }
+        .portfolio-viewer-close:hover,.portfolio-viewer-nav:hover { background:var(--primary); transform:scale(1.05); }
+        .portfolio-viewer-close { top:1.3rem; right:1.4rem; font-size:1.2rem; }
+        .portfolio-viewer-nav { top:50%; transform:translateY(-50%); }
+        .portfolio-viewer-nav:hover { transform:translateY(-50%) scale(1.05); }
+        .portfolio-viewer-prev { left:1.25rem; }.portfolio-viewer-next { right:1.25rem; }
+        @media (max-width:900px) { .portfolio-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.9rem; } .portfolio-viewer { padding:5rem 3.5rem 1.5rem; } }
+        @media (max-width:560px) { .portfolio-gallery-grid { grid-template-columns:1fr; gap:.85rem; } .portfolio-slide-meta { min-height:70px; } .portfolio-slide-meta strong { font-size:.88rem; } .portfolio-gallery-footer { flex-direction:column; } .portfolio-gallery-footer .portfolio-cta { width:100%; } .portfolio-viewer { padding:4.5rem .6rem 1rem; gap:.25rem; } .portfolio-viewer-figure img { max-height:calc(100vh - 190px); border-radius:5px; } .portfolio-viewer-nav { width:38px;height:38px; top:auto; bottom:1.2rem; transform:none; } .portfolio-viewer-nav:hover { transform:scale(1.05); } .portfolio-viewer-prev { left:calc(50% - 48px); }.portfolio-viewer-next { right:calc(50% - 48px); } .portfolio-viewer-figure figcaption { padding-bottom:3.3rem; gap:.35rem .6rem; } .portfolio-viewer-close { top:.7rem;right:.7rem;width:40px;height:40px; } }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo" aria-label="Brandingin - Beranda"><img src="logo.png" alt="Brandingin"></a>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Buka menu navigasi" aria-controls="navLinks" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Halaman Utama</a></li>
+                <li><a href="#services">Paket & Layanan</a></li>
+                <li><a href="#brands">Brand we've Handled</a></li>
+                <li><a href="#team">Tim & Portofolio</a></li>
+                <li><a href="#contact">Yuk, Ngobrol!</a></li>
+            </ul>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="cta-btn"><i class="fa-brands fa-whatsapp"></i> Hubungi Kami</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content reveal">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> CREATIVE DIGITAL PARTNER</div>
+            <h1>Konten Kami yang urus <span>Bisnis Kamu gas terus!</span></h1>
+            <p>Strategi digital marketing dan website yang dirancang untuk membuat bisnismu tampil lebih profesional, mudah ditemukan, dan siap berkembang.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="cta-btn">Jelajahi Layanan <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#portfolio" class="btn-outline">Lihat Portofolio</a>
+            </div>
+            <div class="hero-proof"><div class="proof-avatars"><span>B</span><span>D</span><span>+</span></div><div><strong>Ide kreatif, eksekusi terarah</strong><small>Untuk brand yang ingin naik level</small></div></div>
+        </div>
+        <div class="hero-visual reveal" aria-label="Kolase visual kreativitas digital dan pembuatan website">
+            <div class="hero-photo hero-photo-main"><img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=85" alt="Moodboard desain dan branding kreatif"><span class="photo-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Creative direction</span></div>
+            <div class="hero-photo hero-photo-small"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=85" alt="Dashboard analitik digital di laptop"></div>
+            <div class="hero-floating-card"><span class="floating-icon"><i class="fa-solid fa-chart-line"></i></span><div><strong>Built to grow</strong><small>Strategi + kreativitas</small></div><span class="floating-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+            <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+        </div>
+    </section>
+
+    <div class="stats-strip reveal" aria-label="Keunggulan Brandingin">
+        <div><strong>01</strong><span>Strategi yang terarah</span></div><div><strong>02</strong><span>Visual yang konsisten</span></div><div><strong>03</strong><span>Website responsif</span></div><div><strong>04</strong><span>Laporan yang jelas</span></div>
+    </div>
+
+    <!-- Visual Services -->
+    <section class="service-showcase" id="what-we-do">
+        <div class="section-header reveal"><span class="section-kicker">APA YANG KAMI KERJAKAN</span><h2>Dari ide jadi <span class="heading-accent">pengalaman digital.</span></h2><p>Semua yang brand kamu butuhkan untuk tampil lebih konsisten di dunia digital.</p></div>
+        <div class="service-visual-grid">
+            <article class="service-visual-card service-social reveal"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=85" alt="Konten media sosial dan perangkat digital" loading="lazy"><div class="service-visual-overlay"><span>01 / SOCIAL MEDIA</span><h3>Konten yang punya karakter.</h3><p>Strategi konten, desain kreatif, caption, dan pengelolaan media sosial.</p><a href="#services" aria-label="Lihat paket social media"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article>
+            <article class="service-visual-card service-web reveal"><img src="https://images.unsplash.com/photo-1547658720-9d2a9c7f4b2f?auto=format&fit=crop&w=900&q=85" alt="Tampilan desain website di layar laptop" loading="lazy"><div class="service-visual-overlay"><span>02 / WEB CREATION</span><h3>Website yang terasa profesional.</h3><p>Landing page dan company profile yang responsif, jelas, dan mudah digunakan.</p><a href="#services" aria-label="Lihat paket website"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article>
+            <article class="service-visual-card service-brand reveal"><img src="https://images.unsplash.com/photo-1634942536790-2536e3e9e4a2?auto=format&fit=crop&w=900&q=85" alt="Perangkat dan material identitas visual brand" loading="lazy"><div class="service-visual-overlay"><span>03 / BRAND IDENTITY</span><h3>Identitas yang mudah diingat.</h3><p>Arah visual, warna, dan elemen brand yang lebih konsisten.</p><a href="#services" aria-label="Lihat paket branding"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article>
+        </div>
+    </section>
+
+    <!-- Services / Packages Section -->
+    <section id="services">
+        <div class="section-header">
+            <h2>Pilihan Paket & Layanan</h2>
+            <p>Pilih paket terbaik yang sesuai dengan kebutuhan dan skala bisnismu</p>
+        </div>
+
+        <div class="packages-grid">
+            <!-- Paket Basic -->
+            <div class="package-card">
+                <div>
+                    <h3 class="package-title">Paket Basic</h3>
+                    <div class="package-price">Rp 400.000</div>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> 4 Konten (Feed / Reels)</li>
+                        <li><i class="fa-solid fa-check"></i> Basic Editing</li>
+                        <li><i class="fa-solid fa-check"></i> Copywriting & Caption</li>
+                        <li><i class="fa-solid fa-check"></i> Maks. 1x Revisi / Footage</li>
+                        <li><i class="fa-solid fa-check"></i> Penyimpanan Google Drive</li>
+                        <li><i class="fa-solid fa-times" style="color:#ef4444;"></i> Desain Logo & Branding</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Paket%20Basic" target="_blank" rel="noopener noreferrer" class="btn-package">Pilih Paket Basic</a>
+            </div>
+
+            <!-- Paket Medium -->
+            <div class="package-card">
+                <div>
+                    <h3 class="package-title">Paket Medium</h3>
+                    <div class="package-price">Rp 600.000</div>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> 4 Reels & 4 Feed Photos</li>
+                        <li><i class="fa-solid fa-check"></i> Editing Medium & Color Palette</li>
+                        <li><i class="fa-solid fa-check"></i> Jadwal Post & Konten Planing</li>
+                        <li><i class="fa-solid fa-check"></i> Monitor Berkala & Insight</li>
+                        <li><i class="fa-solid fa-check"></i> Laporan Projekt & Maks. 2x Revisi</li>
+                        <li><i class="fa-solid fa-times" style="color:#ef4444;"></i> Desain Logo & Branding</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Paket%20Medium" target="_blank" rel="noopener noreferrer" class="btn-package">Pilih Paket Medium</a>
+            </div>
+
+            <!-- Paket Gold -->
+            <div class="package-card featured">
+                <div class="popular-badge">Best Value</div>
+                <div>
+                    <h3 class="package-title">Paket Gold</h3>
+                    <div class="package-price">Rp 1.200.000</div>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> 10 Konten (5 Feeds & 5 Reels)</li>
+                        <li><i class="fa-solid fa-check"></i> Landing Page (Portofolio / Company Profile)</li>
+                        <li><i class="fa-solid fa-check" style="color:#10b981;"></i> <b>Desain Logo & Konsultasi Warna (Branding)</b></li>
+                        <li><i class="fa-solid fa-check"></i> Jadwal Post, Monitor & Laporan Berkala</li>
+                        <li><i class="fa-solid fa-check"></i> Copywriting, Caption & Free Request Edit</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Paket%20Gold" target="_blank" rel="noopener noreferrer" class="btn-package">Pilih Paket Gold</a>
+            </div>
+        </div>
+
+        <!-- Additional Services & Info -->
+        <div class="addon-section">
+            <div class="addon-item">
+                <h3><i class="fa-solid fa-layer-group"></i> Layanan Tambahan & Satuan</h3>
+                <ul class="addon-list">
+                    <li><span>Pembuatan Jasa Website / Landing Page</span> <span>Rp 250.000</span></li>
+                    <li><span>Add-on Negosiasi Klien (Reels + Feed)</span> <span>Kustom</span></li>
+                    <li><span>Add-on Ads Sosial Media</span> <span>Kustom</span></li>
+                </ul>
+            </div>
+            <div class="addon-item">
+                <h3><i class="fa-solid fa-truck"></i> Ketentuan Transport & Pengiriman</h3>
+                <ul class="addon-list">
+                    <li><span>Jarak &lt; 5 km dari lokasi tim</span> <span style="color: #10b981; font-weight: 700;">FREE</span></li>
+                    <li><span>Jarak &gt; 5 km</span> <span>Rp 5.000 / km</span></li>
+                    <li><span>Durasi Kontrak & Project</span> <span>Fleksibel (Harian / Mingguan)</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands We've Handled Section -->
+    <section class="brands-section" id="brands">
+        <div class="section-header" style="margin-bottom: 2rem;">
+            <h2 style="color: white;">Brand We've Handled</h2>
+            <p style="color: #fce4e8;">Beberapa brand terpercaya yang telah sukses berkolaborasi bersama kami</p>
+        </div>
+        <div class="brands-grid">
+            <!-- Row 1 -->
+            <a href="https://www.instagram.com/copycat_cbch/" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.2885-19/470002645_548763471297820_7012081745790669546_n.jpg?_nc_cat=101&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDM5LkMzIn0%3D&_nc_ohc=fDkf0nB8LJgQ7kNvwFF_2gg&_nc_oc=Ado3T_OavF1S0PlgE0W1HvzoNxdwDbioSSFAhboViKy-n1bH2h9EwTak0LhzI7Wls9w&_nc_zt=24&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_ss=7baaf&oh=00_AQOrAPEZDYuOul8QC23ZWhamw7h4Fpd0Xji2GSIJhIVidg&oe=6ACAB327" alt="CopyCat">
+                <div class="brand-overlay">
+                    <span>CopyCat</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/umn_consulting/" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://scontent-cgk1-1.cdninstagram.com/v/t51.2885-19/272120520_350391729953802_7571051940697160173_n.jpg?_nc_cat=109&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=uA_u9EUNY90Q7kNvwF8Yv7f&_nc_oc=AdoqcWZLUGOeYA7dRoK1GP17psxHxbny9j-5C33bka6UyCMUNr0o78t7XRhrz8lJ7ao&_nc_zt=24&_nc_ht=scontent-cgk1-1.cdninstagram.com&_nc_ss=7baaf&oh=00_AQPBXjjnmBJEtlEqhEM9j43AMM_QaUxx3v7E1kNvggpHpA&oe=6ACA9384" alt="UMNC">
+                <div class="brand-overlay">
+                    <span>UMN Consulting</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+            <a href="https://instagram.com/cnailss.co" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://instagram.fcgk54-1.fna.fbcdn.net/v/t51.82787-19/779200918_17976776325109617_302799418085695911_n.jpg?_nc_cat=110&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy45NTcuQzMifQ%3D%3D&_nc_ohc=EB-PA8RGTEwQ7kNvwFqgJrE&_nc_oc=AdqOV501AerN5XfMezecbvd1epQyxcwj4uxmOSseypmX_ENMhp3BlDCrsjoRjpvh3IA&_nc_zt=24&_nc_ht=instagram.fcgk54-1.fna&_nc_gid=2HdpyvdnZLxNadWruSx25A&_nc_ss=7baaf&oh=00_AQOu4gceLeAs4mVRHj8FU4pRVYdgoU8ZzVkXUuB_ayOhKw&oe=6ACAA085" alt="Cnailss.co">
+                <div class="brand-overlay">
+                    <span>Cnailss.co</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+            <a href="https://instagram.com/furvitpet.indonesia" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://instagram.fcgk12-1.fna.fbcdn.net/v/t51.2885-19/409985523_729724969074865_8329572108788906051_n.jpg?_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=vvW246WRzckQ7kNvwEEx8xc&_nc_oc=Ado-iJpFTfivhFPLkcv-pdE79Q8Q2yOxVZHhgZ8rdkT5IILXOijmOtrht7afZaW_PKU&_nc_zt=24&_nc_ht=instagram.fcgk12-1.fna&_nc_ss=7baaf&oh=00_AQM0jdMyPWylJM20GnXUdaxSj2yKWR24vUXXp-4oXNuopw&oe=6ACAE024" alt="Furvit">
+                <div class="brand-overlay">
+                    <span>Furvit Pet indonesia</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+
+            <!-- Row 2 -->
+            <a href="https://www.instagram.com/nikenprinting/" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://scontent-sub1-1.cdninstagram.com/v/t51.82787-19/710537702_17905348104425290_354759762439996767_n.jpg?_nc_cat=105&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=abo5IA4EViYQ7kNvwER7uLO&_nc_oc=AdrRzYt5xY1Lepj49gPwM2y71dB3bqiTxgXnoNfd2vj7mlJtG1QfPzn5NSY-OWHgDcM&_nc_zt=24&_nc_ht=scontent-sub1-1.cdninstagram.com&_nc_gid=0FtoTvi7zVq7U9E-RNrW4w&_nc_ss=7baaf&oh=00_AQMnlzUb3JjB6qE7ox0pmFQX8fKNGEnrUcOote09_L8DuA&oe=6ACA9541" alt="Niken">
+                <div class="brand-overlay">
+                    <span>Niken Printing</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/dibaindonesia_/" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.82787-19/655334531_18041659412767685_2854944647931918204_n.jpg?_nc_cat=100&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy42MDQuQzMifQ%3D%3D&_nc_ohc=dO5ZHW7b9woQ7kNvwGWtVqt&_nc_oc=AdrumBQ2BexsoooJ9CTV12fvNqHKycrHZjQ1jz_4DhwiPUQcFRxVDgwkynSUeErI4v4&_nc_zt=24&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_gid=RneN40xsCyexMryg0-ESwQ&_nc_ss=7baaf&oh=00_AQNu9bGtBso2qa1-Fx6QEHYZ-33-NDJ2lyQM0AsLg_2uDw&oe=6ACA8256" alt="DIBA Indonesia">
+                <div class="brand-overlay">
+                    <span>DIBA Indonesia</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/umndigitallearning/" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://scontent-sub1-1.cdninstagram.com/v/t51.2885-19/135094815_189118292930760_8971311189751987101_n.jpg?_nc_cat=109&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=-2lf1OxIj_cQ7kNvwFP643z&_nc_oc=AdpG9a7Bmyj3L4wCz4rT2jEGrWK-8S0dJLWuPyqmVgeqehJn0WS8ZjCzrPk2-DbKPe0&_nc_zt=24&_nc_ht=scontent-sub1-1.cdninstagram.com&_nc_ss=7baaf&oh=00_AQMpB7kFT0fmrxGT_1Bjw6CCrN39ywl2zvXR4cL93Gwj-w&oe=6ACAAE00" alt="UDL">
+                <div class="brand-overlay">
+                    <span>UMN Digital Learning</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/warkopmboksarijem/" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://instagram.fcgk54-1.fna.fbcdn.net/v/t51.2885-19/490468990_1257511112655712_6827590670929461269_n.jpg?_nc_cat=102&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy45NzUuQzMifQ%3D%3D&_nc_ohc=IwnyiUTog2sQ7kNvwFr0c15&_nc_oc=AdpEL01TyCo2BhL5iwP81XoqvlBEYTZOXMnKC9vlXV-eOWn2ARCsoU5NJFAstEYBCEE&_nc_zt=24&_nc_ht=instagram.fcgk54-1.fna&_nc_ss=7baaf&oh=00_AQNWHio-OfXf9Hf5XAYHfVxd7SFDJtOgP9X_zKJjZF7KVA&oe=6ACA83C8" alt="Mbok Sarijem">
+                <div class="brand-overlay">
+                    <span>Warkop Mbok Sarijem</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+
+            <!-- Row 3 -->
+            <a href="https://www.instagram.com/pixartistic.indonesia/" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://scontent-cgk2-1.cdninstagram.com/v/t51.2885-19/468730231_9182736628432603_7174637287058050570_n.jpg?_nc_cat=102&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDAwLkMzIn0%3D&_nc_ohc=W6a1ar8agXEQ7kNvwHkt8Pq&_nc_oc=AdqRXiXYwXjT12LXt63W3sisz9rwvQL6Tpbz3HVjLHdOc49EwiFHd__fI-CF4Jp_EuE&_nc_zt=24&_nc_ht=scontent-cgk2-1.cdninstagram.com&_nc_ss=7baaf&oh=00_AQOLQZVYK8jcFsGlG_rKW7l3GlEObCPp_MeNkFttlCnGOw&oe=6ACA8EA2" alt="Pixartistic">
+                <div class="brand-overlay">
+                    <span>Bixartistic</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+            <a href="https://instagram.com/icecreamkarimata1981" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://scontent-cgk1-1.cdninstagram.com/v/t51.82787-19/729579037_18427409665130037_8870454714576712246_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=109&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=4fhWwmoKfWkQ7kNvwEchohH&_nc_oc=AdrBrSRj_HswnMw5SoWX9XDZBpdAn3Q7zWgyrTCRIxPEkHyJ5giEZppY6PZPHDc4_5I&_nc_zt=24&_nc_ht=scontent-cgk1-1.cdninstagram.com&_nc_gid=5EL98LPd_wfRHrA8NWZDlw&_nc_ss=7ba8c&oh=00_AQOWfkJsklbXcde8ZZDFf2BwuHhqWvzk3E4N4GN_-9sOiQ&oe=6ACAB9BC" alt="Ice Cream Karimata">
+                <div class="brand-overlay">
+                    <span>Karimata Ice Cream</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/safitravel.id/" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.82787-19/522384373_17895200556254458_7281550784616104374_n.jpg?_nc_cat=100&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43NDguQzMifQ%3D%3D&_nc_ohc=-evApPoaoYwQ7kNvwGPRtkh&_nc_oc=AdpDSOt7wbJrVEywNeAaepeuVC4QffaxZH_RvtDY-TeoEoBD4gsYwCEL3Dmig5DwO20&_nc_zt=24&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_gid=gHewQV4PcxyPtDkaUs9ckw&_nc_ss=7baaf&oh=00_AQOrybAYCgtZNZl6qe3dmh1dkHs7ere5dlCy7kyY5CH4FQ&oe=6ACABAF3" alt="Safi Travel">
+                <div class="brand-overlay">
+                    <span>Safi Travel</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/amanasnack/" target="_blank" rel="noopener noreferrer" class="brand-item">
+                <img src="https://scontent-sub1-1.cdninstagram.com/v/t51.2885-19/284586323_689843282309472_5170998730128129553_n.jpg?_nc_cat=111&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDM3LkMzIn0%3D&_nc_ohc=9rpvZyyq0mAQ7kNvwHssSTZ&_nc_oc=Adqht9qeTy8eesYbI5V-j51GuYiE7MKpkTmpB5WCqma8udMD4Lvtys-7f7vfY3eWb7M&_nc_zt=24&_nc_ht=scontent-sub1-1.cdninstagram.com&_nc_ss=7baaf&oh=00_AQMpyPgmHtGM2LFn7TQCORXTVcd7n4hHs3ph_3a66kwxUw&oe=6ACA9472" alt="Amanasnack">
+                <div class="brand-overlay">
+                    <span>Amanasnack</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+
+            <!-- Row 4 -->
+            <a href="https://www.instagram.com/cattybonecathouse_cbch/" target="_blank" rel="noopener noreferrer" class="brand-item" style="grid-column: 2;">
+                <img src="https://scontent-sin2-2.cdninstagram.com/v/t51.2885-19/273933819_316808393826955_154382159749370314_n.jpg?_nc_cat=102&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43MzkuQzMifQ%3D%3D&_nc_ohc=YmXP-QYGwh8Q7kNvwHDZcbi&_nc_oc=Adq-_rWGxH6LdNC-v8vLTbpVD74k8N5Qrlz7dIp6zU2o_2lMx1pstwvUOOOByG1xxIo&_nc_zt=24&_nc_ht=scontent-sin2-2.cdninstagram.com&_nc_ss=7baaf&oh=00_AQMsndIL3XrlBDxJEcdCri5xIMCdRVfaRPv61kaLnAgDow&oe=6ACA9290" alt="Cattybone Cat House">
+                <div class="brand-overlay">
+                    <span>Cattybone Cat House</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/pazarseasonings/" target="_blank" rel="noopener noreferrer" class="brand-item" style="grid-column: 3;">
+                <img src="https://instagram.fcgk16-1.fna.fbcdn.net/v/t51.2885-19/11282783_656606941135904_1144107479_a.jpg?_nc_cat=111&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xNTAuQzMifQ%3D%3D&_nc_ohc=9ZUwSnkVy_AQ7kNvwHoREq0&_nc_oc=AdoBRj9PrqlZ7uoZ20wRR02GVQu1KpkYJ9OkgijVSO-jjcueFXFC0HsLnzX514amJy0&_nc_zt=24&_nc_ht=instagram.fcgk16-1.fna&_nc_ss=7baaf&oh=00_AQMyPprM3Ei82txoNgCFzD502mGqmgyvOk-erK1Tx00RFA&oe=6ACAB4A9" alt="Pazar Seasonings">
+                <div class="brand-overlay">
+                    <span>Pazar Seasonings</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Portfolio proof section: full deck shown on-site, separate from team profiles -->
+    <section id="portfolio" class="portfolio-gallery-section">
+        <div class="section-header reveal">
+            <span class="section-kicker">HASIL KARYA KAMI</span>
+            <h2>Portofolio yang Bisa Kamu Lihat Langsung</h2>
+            <p>Ini beberapa bukti proses dan hasil kerja Brandingin—mulai dari konten media sosial, video, desain, sampai website. Klik salah satu gambar untuk melihat lebih jelas.</p>
+        </div>
+        <div class="portfolio-gallery-grid">
+            <button class="portfolio-slide reveal" type="button" data-slide="0" aria-label="Buka slide 1: Sampul Portofolio">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-01.jpg" loading="lazy" alt="Slide 1 portofolio Brandingin: Sampul Portofolio"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">01</span><span><strong>Sampul Portofolio</strong><small>Perkenalan visual Brandingin</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="1" aria-label="Buka slide 2: Tentang Brandingin">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-02.jpg" loading="lazy" alt="Slide 2 portofolio Brandingin: Tentang Brandingin"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">02</span><span><strong>Tentang Brandingin</strong><small>Cerita singkat dan brand yang pernah ditangani</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="2" aria-label="Buka slide 3: Creative Tools">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-03.jpg" loading="lazy" alt="Slide 3 portofolio Brandingin: Creative Tools"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">03</span><span><strong>Creative Tools</strong><small>Tools yang dipakai untuk proses kreatif</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="3" aria-label="Buka slide 4: Our Team">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-04.jpg" loading="lazy" alt="Slide 4 portofolio Brandingin: Our Team"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">04</span><span><strong>Our Team</strong><small>Kenalan dengan orang-orang di balik Brandingin</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="4" aria-label="Buka slide 5: Nur Liany">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-05.jpg" loading="lazy" alt="Slide 5 portofolio Brandingin: Nur Liany"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">05</span><span><strong>Nur Liany</strong><small>Creative concepting dan content planning</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="5" aria-label="Buka slide 6: Yose Aprian">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-06.jpg" loading="lazy" alt="Slide 6 portofolio Brandingin: Yose Aprian"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">06</span><span><strong>Yose Aprian</strong><small>Strategi konten dan pengelolaan media sosial</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="6" aria-label="Buka slide 7: Abyan Dzakwan">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-07.jpg" loading="lazy" alt="Slide 7 portofolio Brandingin: Abyan Dzakwan"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">07</span><span><strong>Abyan Dzakwan</strong><small>Website development dan content strategy</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="7" aria-label="Buka slide 8: Mika Medi Ariansyah">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-08.jpg" loading="lazy" alt="Slide 8 portofolio Brandingin: Mika Medi Ariansyah"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">08</span><span><strong>Mika Medi Ariansyah</strong><small>Partnership dan kolaborasi</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="8" aria-label="Buka slide 9: Sinta Andriani">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-09.jpg" loading="lazy" alt="Slide 9 portofolio Brandingin: Sinta Andriani"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">09</span><span><strong>Sinta Andriani</strong><small>Social media dan content editing</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="9" aria-label="Buka slide 10: Aura Aulia Rahma">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-10.jpg" loading="lazy" alt="Slide 10 portofolio Brandingin: Aura Aulia Rahma"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">10</span><span><strong>Aura Aulia Rahma</strong><small>Graphic design dan content editing</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="10" aria-label="Buka slide 11: Our Project">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-11.jpg" loading="lazy" alt="Slide 11 portofolio Brandingin: Our Project"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">11</span><span><strong>Our Project</strong><small>Pilihan hasil kerja Brandingin</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="11" aria-label="Buka slide 12: Cattybone Cat House">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-12.jpg" loading="lazy" alt="Slide 12 portofolio Brandingin: Cattybone Cat House"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">12</span><span><strong>Cattybone Cat House</strong><small>Konten media sosial dan insight engagement</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="12" aria-label="Buka slide 13: Project Video">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-13.jpg" loading="lazy" alt="Slide 13 portofolio Brandingin: Project Video"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">13</span><span><strong>Project Video</strong><small>Contoh video dan konten pendek</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="13" aria-label="Buka slide 14: Website Creation">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-14.jpg" loading="lazy" alt="Slide 14 portofolio Brandingin: Website Creation"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">14</span><span><strong>Website Creation</strong><small>Contoh website dan tampilan digital</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="14" aria-label="Buka slide 15: Website Creation">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-15.jpg" loading="lazy" alt="Slide 15 portofolio Brandingin: Website Creation"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">15</span><span><strong>Website Creation</strong><small>Kumpulan hasil pembuatan website</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="15" aria-label="Buka slide 16: Product Photo">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-16.jpg" loading="lazy" alt="Slide 16 portofolio Brandingin: Product Photo"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">16</span><span><strong>Product Photo</strong><small>Foto produk dan visual produk</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="16" aria-label="Buka slide 17: Feed &amp; Poster Design">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-17.jpg" loading="lazy" alt="Slide 17 portofolio Brandingin: Feed &amp; Poster Design"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">17</span><span><strong>Feed &amp; Poster Design</strong><small>Desain feed media sosial dan poster</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="17" aria-label="Buka slide 18: Carousel Design">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-18.jpg" loading="lazy" alt="Slide 18 portofolio Brandingin: Carousel Design"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">18</span><span><strong>Carousel Design</strong><small>Desain konten carousel edukatif</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="18" aria-label="Buka slide 19: Product Feed Design">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-19.jpg" loading="lazy" alt="Slide 19 portofolio Brandingin: Product Feed Design"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">19</span><span><strong>Product Feed Design</strong><small>Visual feed untuk promosi produk</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+            <button class="portfolio-slide reveal" type="button" data-slide="19" aria-label="Buka slide 20: Let’s Work With Us">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-20.jpg" loading="lazy" alt="Slide 20 portofolio Brandingin: Let’s Work With Us"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">20</span><span><strong>Let’s Work With Us</strong><small>Informasi kontak Brandingin</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </button>
+        </div>
+        <div class="portfolio-gallery-footer reveal">
+            <p>Mau lihat versi asli atau menjelajahi portofolio dari Canva?</p>
+            <a class="portfolio-cta" href="https://canva.link/mw6zopv8xwyvg0q" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Buka Portofolio di Canva</a>
+        </div>
+    </section>
+
+    <!-- Portfolio slide viewer -->
+    <div class="portfolio-viewer" id="portfolioViewer" role="dialog" aria-modal="true" aria-label="Tampilan slide portofolio" aria-hidden="true">
+        <button class="portfolio-viewer-close" id="portfolioViewerClose" type="button" aria-label="Tutup portofolio"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <button class="portfolio-viewer-nav portfolio-viewer-prev" id="portfolioViewerPrev" type="button" aria-label="Slide sebelumnya"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+        <figure class="portfolio-viewer-figure"><img id="portfolioViewerImage" src="portfolio-pages/slide-01.jpg" alt="Slide portofolio Brandingin"><figcaption><span id="portfolioViewerCount">01 / 20</span><strong id="portfolioViewerTitle">Sampul Portofolio</strong><small id="portfolioViewerDesc">Perkenalan visual Brandingin</small></figcaption></figure>
+        <button class="portfolio-viewer-nav portfolio-viewer-next" id="portfolioViewerNext" type="button" aria-label="Slide berikutnya"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+    </div>
+
+    <!-- Team Section (6 Members with Photos) -->
+    <section id="team" style="background: white; border-radius: 2rem; border: 1px solid var(--border);">
+        <div class="section-header">
+            <h2>Kenalan Sama Tim Kami</h2>
+            <p>Di balik setiap ide ada orang-orang dengan keahlian yang berbeda. Klik kartu masing-masing buat kenalan lebih dekat.</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- Member 1 -->
+            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Nur Liany" data-profile="0">
+                <div class="team-photo-container">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Nur Liani">
+                </div>
+                <div class="team-name">Nur Liani</div>
+                <div class="team-role">Creative Conceptor</div>
+                <p class="team-bio">Berawal dari ketertarikan pada dunia kreatif, Nur berfokus mengembangkan ide menjadi konten yang punya arah dan karakter. Terbiasa menyusun content plan, editing, copywriting, dan kolaborasi brand sebagai Personal Assistant content creator.</p>
+                <div class="team-portfolio">Keahlian: Creative concepting • Content planning</div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Yose Aprian" data-profile="1">
+                <div class="team-photo-container">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Abyan Dzakwan Permana">
+                </div>
+                <div class="team-name">Abyan Dzakwan Permana</div>
+                <div class="team-role">Content Strategist • Social Media Officer</div>
+                <p class="team-bio">Yose percaya konten bukan cuma soal terlihat menarik, tapi juga bagaimana ide disampaikan dengan tepat. Fokusnya ada pada strategi konten, pengelolaan media sosial, penulisan konten, visual, dan storytelling.</p>
+                <div class="team-portfolio">Keahlian: Content strategy • Social media</div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Abyan Dzakwan Permana" data-profile="2">
+                <div class="team-photo-container">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Yose Aprian Simarmata">
+                </div>
+                <div class="team-name">Yose Aprian Simarmata</div>
+                <div class="team-role">Website Developer • Content Strategist</div>
+                <p class="team-bio">Abyan memadukan strategi bisnis dan kreativitas—mulai dari membangun website, menyusun strategi konten, sampai video editing untuk membantu brand menyampaikan cerita dan membangun koneksi dengan audiens.</p>
+                <div class="team-portfolio">Keahlian: Website development • Content strategy</div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Mika Medi Ariansyah" data-profile="3">
+                <div class="team-photo-container">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Sinta Andriani">
+                </div>
+                <div class="team-name">Sinta Andriani</div>
+                <div class="team-role">Brand Partnership</div>
+                <p class="team-bio">Bagi Mika, partnership bukan sekadar kerja sama, tapi juga soal membangun kepercayaan, memahami kebutuhan tiap pihak, dan menciptakan hubungan yang berkelanjutan. Fokus pada pengembangan partnership dan kolaborasi strategis.</p>
+                <div class="team-portfolio">Keahlian: Partnership development • Strategic collaboration</div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Member 5 -->
+            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Sinta Andriani" data-profile="4">
+                <div class="team-photo-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Mika Medi Ariansyah">
+                </div>
+                <div class="team-name">Mika Medi Ariansyah</div>
+                <div class="team-role">Social Media & Content Editing</div>
+                <p class="team-bio">Sinta tertarik pada social media dan digital marketing. Ia terbiasa mengembangkan ide konten, copywriting, mengelola media sosial, serta mengikuti tren untuk membantu meningkatkan engagement dan brand awareness.</p>
+                <div class="team-portfolio">Keahlian: Social media management • Copywriting</div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Member 6 -->
+            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Aura Aulia Rahma" data-profile="5">
+                <div class="team-photo-container">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Aura aulia Rahma">
+                </div>
+                <div class="team-name">Aura Aulia Rahma</div>
+                <div class="team-role">Graphic Design & Content Editing</div>
+                <p class="team-bio">Aura punya ketertarikan pada desain, seni, dan kreativitas. Ia senang membuat desain untuk media sosial dan mengeksplorasi ide visual yang menarik serta punya nilai estetika.</p>
+                <div class="team-portfolio">Keahlian: Graphic design • Social media design</div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Popup profil anggota tim -->
+    <div class="profile-modal" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="profileModalName" aria-hidden="true">
+        <div class="profile-dialog">
+            <button class="profile-close" id="profileClose" type="button" aria-label="Tutup profil"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            <div class="profile-kicker">Kenalan lebih dekat</div>
+            <h3 id="profileModalName">Nama anggota</h3>
+            <div class="profile-role" id="profileModalRole"></div>
+            <p id="profileModalBio"></p>
+            <div class="profile-skills" id="profileModalSkills"></div>
+            <a class="portfolio-cta" href="https://canva.link/mw6zopv8xwyvg0q" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Lihat Portofolio Lengkap</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#home" class="logo" aria-label="Brandingin - Beranda"><img src="logo.png" alt="Brandingin"></a>
+                <p>Punya bisnis yang pengin makin dikenal? Brandingin bantu bikin konten yang menarik, ngurus media sosial, sampai bikin website yang cocok sama karakter brand kamu. Yuk, tumbuh bareng!</p>
+                <div class="social-icons" aria-label="Media sosial Brandingin">
+                    <a href="https://www.facebook.com/people/Brandingin-Connect/pfbid02aHvK8SmTUqdMdhjkZLTjcjTNx986pGsjfGCQiwbqVypcA48u7NNGnyKrWB33ejBDl/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Brandingin"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/branding.inproject/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Brandingin"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@brandingin.project" target="_blank" rel="noopener noreferrer" aria-label="TikTok Brandingin"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Brandingin"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Yang Bisa Kami Bantu</h3>
+                <ul>
+                    <li><a href="#services">Konten &amp; Media Sosial</a></li>
+                    <li><a href="#services">Website untuk Bisnis</a></li>
+                    <li><a href="#services">Identitas Brand</a></li>
+                    <li><a href="#services">Lihat Paket Layanan</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Fokus Kami</h3>
+                <ul>
+                    <li><a href="#what-we-do">Ide &amp; Konten Kreatif</a></li>
+                    <li><a href="#what-we-do">Website Profil Bisnis</a></li>
+                    <li><a href="#what-we-do">Desain UI/UX</a></li>
+                    <li><a href="#what-we-do">Strategi Digital</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kenalan Lebih Dekat</h3>
+                <ul>
+                    <li><a href="#home">Halaman Utama</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#team">Tim Kami</a></li>
+                    <li><a href="#brands">Hasil Kerja Kami</a></li>
+                    <li><a href="#contact">Yuk, Ngobrol!</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2026 Brandingin. Dibuat dengan ide dan semangat kreatif.</div>
+    </footer>
+
+    <!-- Chatbot Widget Elements -->
+    <button class="chatbot-toggler" id="chatbotToggler">
+        <i class="fa-solid fa-comments"></i>
+    </button>
+
+    <div class="chat-popup" id="chatPopup">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Mimin Bot">
+                <div>
+                    <h3>Mimin</h3>
+                    <span>Online | Siap Membantu</span>
+                </div>
+            </div>
+            <button class="close-chat" id="closeChat"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message bot">
+                Halo! 👋 Selamat datang di Brandingin. Ada yang bisa kami bantu terkait paket digital marketing atau jasa pembuatan website kami?
+            </div>
+        </div>
+        <div class="quick-replies">
+            <button class="quick-reply-btn" onclick="sendQuickReply('Info Paket Harga')">💰 Info Paket</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('Ketentuan Transport')">🚚 Transport</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('Hubungi WhatsApp')">💬 WhatsApp</button>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Ketik pesan atau pertanyaan..." onkeypress="handleKeyPress(event)">
+            <button id="sendMessageBtn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Chatbot JavaScript Logic -->
+    <script>
+
+        // Mobile navigation: touch-friendly and closes after selecting a section
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        function setMobileNav(open) {
+            if (!menuToggle || !navLinks) return;
+            navLinks.classList.toggle('open', open);
+            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            menuToggle.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+            menuToggle.innerHTML = open ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>' : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+        }
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                setMobileNav(!navLinks.classList.contains('open'));
+            });
+            navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMobileNav(false)));
+            document.addEventListener('click', event => {
+                if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) setMobileNav(false);
+            });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape') setMobileNav(false);
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) setMobileNav(false);
+            });
+        }
+
+        // Gentle reveal-on-scroll animation
+        const revealItems = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            revealItems.forEach(item => revealObserver.observe(item));
+        } else {
+            revealItems.forEach(item => item.classList.add('is-visible'));
+        }
+
+        // Back to top control
+        const backToTop = document.createElement('button');
+        backToTop.className = 'back-to-top';
+        backToTop.type = 'button';
+        backToTop.setAttribute('aria-label', 'Kembali ke atas');
+        backToTop.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+        document.body.appendChild(backToTop);
+        window.addEventListener('scroll', () => backToTop.classList.toggle('visible', window.scrollY > 500), { passive: true });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+
+        // Team profile popups: keyboard and touch friendly
+        const teamProfiles = [
+            { name: 'Nur Liany', role: 'Creative Conceptor', bio: 'Berawal dari ketertarikan pada dunia kreatif, Nur berfokus mengembangkan ide menjadi konten yang punya arah dan karakter. Terbiasa menyusun content plan, editing, copywriting, dan kolaborasi brand sebagai Personal Assistant content creator.', skills: ['Creative concepting','Content planning','Copywriting','Brand collaboration'] },
+            { name: 'Yose Aprian', role: 'Content Strategist • Social Media Officer', bio: 'Yose percaya konten bukan cuma soal terlihat menarik, tapi juga bagaimana ide disampaikan dengan tepat. Fokusnya ada pada strategi konten, pengelolaan media sosial, penulisan konten, visual, dan storytelling.', skills: ['Content strategy','Social media','Content writing','Visual storytelling'] },
+            { name: 'Abyan Dzakwan Permana', role: 'Website Developer • Content Strategist', bio: 'Abyan memadukan strategi bisnis dan kreativitas—mulai dari membangun website, menyusun strategi konten, sampai video editing untuk membantu brand menyampaikan cerita dan membangun koneksi dengan audiens.', skills: ['Website development','Content strategy','Video editing','Digital commerce'] },
+            { name: 'Mika Medi Ariansyah', role: 'Brand Partnership', bio: 'Bagi Mika, partnership bukan sekadar kerja sama, tapi juga soal membangun kepercayaan, memahami kebutuhan tiap pihak, dan menciptakan hubungan yang berkelanjutan. Fokus pada pengembangan partnership dan kolaborasi strategis.', skills: ['Partnership development','Strategic collaboration','Brand relations'] },
+            { name: 'Sinta Andriani', role: 'Social Media & Content Editing', bio: 'Sinta tertarik pada social media dan digital marketing. Ia terbiasa mengembangkan ide konten, copywriting, mengelola media sosial, serta mengikuti tren untuk membantu meningkatkan engagement dan brand awareness.', skills: ['Social media management','Copywriting','Content editing','Graphic design'] },
+            { name: 'Aura Aulia Rahma', role: 'Graphic Design & Content Editing', bio: 'Aura punya ketertarikan pada desain, seni, dan kreativitas. Ia senang membuat desain untuk media sosial dan mengeksplorasi ide visual yang menarik serta punya nilai estetika.', skills: ['Graphic design','Social media design','Creative content','Visual branding'] }
+        ];
+        const profileModal = document.getElementById('profileModal');
+        const profileClose = document.getElementById('profileClose');
+        const openProfile = (card) => {
+            const profile = teamProfiles[Number(card.dataset.profile)];
+            if (!profile) return;
+            document.getElementById('profileModalName').textContent = profile.name;
+            document.getElementById('profileModalRole').textContent = profile.role;
+            document.getElementById('profileModalBio').textContent = profile.bio;
+            const skillBox = document.getElementById('profileModalSkills');
+            skillBox.replaceChildren();
+            profile.skills.forEach(skill => { const tag = document.createElement('span'); tag.textContent = skill; skillBox.appendChild(tag); });
+            profileModal.classList.add('show');
+            profileModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            profileClose.focus();
+        };
+        const closeProfile = () => {
+            profileModal.classList.remove('show');
+            profileModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        };
+        document.querySelectorAll('.profile-trigger').forEach(card => {
+            card.addEventListener('click', () => openProfile(card));
+            card.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openProfile(card); } });
+        });
+        profileClose.addEventListener('click', closeProfile);
+        profileModal.addEventListener('click', event => { if (event.target === profileModal) closeProfile(); });
+        document.addEventListener('keydown', event => { if (event.key === 'Escape' && profileModal.classList.contains('show')) closeProfile(); });
+
+
+        // Interactive portfolio viewer: opens each portfolio page, with next/previous controls.
+        const portfolioSlides = [{"src": "portfolio-pages/slide-01.jpg", "title": "Sampul Portofolio", "desc": "Perkenalan visual Brandingin"}, {"src": "portfolio-pages/slide-02.jpg", "title": "Tentang Brandingin", "desc": "Cerita singkat dan brand yang pernah ditangani"}, {"src": "portfolio-pages/slide-03.jpg", "title": "Creative Tools", "desc": "Tools yang dipakai untuk proses kreatif"}, {"src": "portfolio-pages/slide-04.jpg", "title": "Our Team", "desc": "Kenalan dengan orang-orang di balik Brandingin"}, {"src": "portfolio-pages/slide-05.jpg", "title": "Nur Liany", "desc": "Creative concepting dan content planning"}, {"src": "portfolio-pages/slide-06.jpg", "title": "Yose Aprian", "desc": "Strategi konten dan pengelolaan media sosial"}, {"src": "portfolio-pages/slide-07.jpg", "title": "Abyan Dzakwan", "desc": "Website development dan content strategy"}, {"src": "portfolio-pages/slide-08.jpg", "title": "Mika Medi Ariansyah", "desc": "Partnership dan kolaborasi"}, {"src": "portfolio-pages/slide-09.jpg", "title": "Sinta Andriani", "desc": "Social media dan content editing"}, {"src": "portfolio-pages/slide-10.jpg", "title": "Aura Aulia Rahma", "desc": "Graphic design dan content editing"}, {"src": "portfolio-pages/slide-11.jpg", "title": "Our Project", "desc": "Pilihan hasil kerja Brandingin"}, {"src": "portfolio-pages/slide-12.jpg", "title": "Cattybone Cat House", "desc": "Konten media sosial dan insight engagement"}, {"src": "portfolio-pages/slide-13.jpg", "title": "Project Video", "desc": "Contoh video dan konten pendek"}, {"src": "portfolio-pages/slide-14.jpg", "title": "Website Creation", "desc": "Contoh website dan tampilan digital"}, {"src": "portfolio-pages/slide-15.jpg", "title": "Website Creation", "desc": "Kumpulan hasil pembuatan website"}, {"src": "portfolio-pages/slide-16.jpg", "title": "Product Photo", "desc": "Foto produk dan visual produk"}, {"src": "portfolio-pages/slide-17.jpg", "title": "Feed & Poster Design", "desc": "Desain feed media sosial dan poster"}, {"src": "portfolio-pages/slide-18.jpg", "title": "Carousel Design", "desc": "Desain konten carousel edukatif"}, {"src": "portfolio-pages/slide-19.jpg", "title": "Product Feed Design", "desc": "Visual feed untuk promosi produk"}, {"src": "portfolio-pages/slide-20.jpg", "title": "Let’s Work With Us", "desc": "Informasi kontak Brandingin"}];
+        const portfolioViewer = document.getElementById('portfolioViewer');
+        const portfolioViewerImage = document.getElementById('portfolioViewerImage');
+        const portfolioViewerCount = document.getElementById('portfolioViewerCount');
+        const portfolioViewerTitle = document.getElementById('portfolioViewerTitle');
+        const portfolioViewerDesc = document.getElementById('portfolioViewerDesc');
+        const portfolioViewerClose = document.getElementById('portfolioViewerClose');
+        let currentPortfolioSlide = 0;
+        let previousFocus = null;
+        const renderPortfolioSlide = (index) => {
+            currentPortfolioSlide = (index + portfolioSlides.length) % portfolioSlides.length;
+            const slide = portfolioSlides[currentPortfolioSlide];
+            portfolioViewerImage.src = slide.src;
+            portfolioViewerImage.alt = `Slide ${currentPortfolioSlide + 1} portofolio Brandingin: ${slide.title}`;
+            portfolioViewerCount.textContent = `${String(currentPortfolioSlide + 1).padStart(2, '0')} / ${portfolioSlides.length}`;
+            portfolioViewerTitle.textContent = slide.title;
+            portfolioViewerDesc.textContent = slide.desc;
+        };
+        const openPortfolioSlide = (index, trigger) => {
+            previousFocus = trigger || document.activeElement;
+            renderPortfolioSlide(index);
+            portfolioViewer.classList.add('show');
+            portfolioViewer.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            portfolioViewerClose.focus();
+        };
+        const closePortfolioViewer = () => {
+            portfolioViewer.classList.remove('show');
+            portfolioViewer.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
+        };
+        document.querySelectorAll('.portfolio-slide').forEach(card => card.addEventListener('click', () => openPortfolioSlide(Number(card.dataset.slide), card)));
+        document.getElementById('portfolioViewerPrev').addEventListener('click', () => renderPortfolioSlide(currentPortfolioSlide - 1));
+        document.getElementById('portfolioViewerNext').addEventListener('click', () => renderPortfolioSlide(currentPortfolioSlide + 1));
+        portfolioViewerClose.addEventListener('click', closePortfolioViewer);
+        portfolioViewer.addEventListener('click', event => { if (event.target === portfolioViewer) closePortfolioViewer(); });
+        document.addEventListener('keydown', event => {
+            if (!portfolioViewer.classList.contains('show')) return;
+            if (event.key === 'Escape') closePortfolioViewer();
+            if (event.key === 'ArrowLeft') renderPortfolioSlide(currentPortfolioSlide - 1);
+            if (event.key === 'ArrowRight') renderPortfolioSlide(currentPortfolioSlide + 1);
+        });
+
+        const chatbotToggler = document.getElementById('chatbotToggler');
+        const chatPopup = document.getElementById('chatPopup');
+        const closeChat = document.getElementById('closeChat');
+        const chatBody = document.getElementById('chatBody');
+        const chatInput = document.getElementById('chatInput');
+
+        chatbotToggler.addEventListener('click', () => {
+            chatPopup.classList.toggle('show');
+            if (chatPopup.classList.contains('show')) {
+                chatInput.focus();
+            }
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatPopup.classList.remove('show');
+        });
+
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-message ${sender}`;
+            msgDiv.textContent = text;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function getBotResponse(userText) {
+            const text = userText.toLowerCase();
+            if (text.includes('paket') || text.includes('harga') || text.includes('basic') || text.includes('medium') || text.includes('gold')) {
+                return "Kami menyediakan 3 pilihan paket terbaik:\n1. Paket Basic (Rp 400.000): 4 Konten, Basic Editing, Copywriting.\n2. Paket Medium (Rp 600.000): 4 Reels & 4 Feeds, Content Plan.\n3. Paket Gold (Rp 1.200.000): 10 Konten + Landing Page + Desain Logo & Branding!\n\nMau pesan atau konsultasi paket yang mana?";
+            } else if (text.includes('transport') || text.includes('ongkir') || text.includes('jarak') || text.includes('km')) {
+                return "Ketentuan transport tim kami:\n- Jarak < 5 km dari lokasi tim: FREE (Gratis)\n- Jarak > 5 km: Rp 5.000 / km\nFleksibel untuk kontrak harian maupun mingguan!";
+            } else if (text.includes('whatsapp') || text.includes('wa') || text.includes('hubungi') || text.includes('pesan')) {
+                window.open('https://wa.me/6281234567890?text=Halo%20Brandingin,%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20digital%20marketing.', '_blank');
+                return "Tentu! Kami telah mengarahkan Anda ke WhatsApp resmi Brandingin agar bisa langsung terhubung dengan tim kami. 🚀";
+            } else if (text.includes('tim') || text.includes('founder') || text.includes('siapa')) {
+                return "Brandingin didukung oleh 6 talenta profesional berpengalaman: Nur Liani (Founder), Abyan Dzakwan (Creative Director), Yose Aprian (Web Developer), Sinta Andriani (Social Media), Mika Medi (Videographer), dan Aura Aulia (Brand Designer).";
+            } else if (text.includes('brand') || text.includes('klien') || text.includes('portofolio')) {
+                return "Kami telah menangani berbagai brand sukses seperti CopyCat, UMN Consulting, Cnailss.co, Furvit Pet Indonesia, Niken Printing, DIBA Indonesia, UMN Digital Learning, Warkop Mbok Sarijem, Bixartistic, Karimata Ice Cream, Safi Travel, Amanasnack, Cattybone Cat House, dan Pazar Seasonings!";
+            } else {
+                return "Pertanyaan bagus! Untuk informasi lebih lanjut atau pemesanan khusus, Anda bisa langsung klik tombol Hubungi WhatsApp kami di pojok kanan atas atau ketik 'Info Paket' / 'WhatsApp'.";
+            }
+        }
+
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            
+            appendMessage(text, 'user');
+            chatInput.value = '';
+
+            setTimeout(() => {
+                const response = getBotResponse(text);
+                appendMessage(response, 'bot');
+            }, 600);
+        }
+
+        function sendQuickReply(replyText) {
+            appendMessage(replyText, 'user');
+            setTimeout(() => {
+                const response = getBotResponse(replyText);
+                appendMessage(response, 'bot');
+            }, 600);
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>
