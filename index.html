@@ -64,7 +64,6 @@
             flex-shrink: 0;
         }
 
-        /* Cropped logo asset: keep navbar compact without changing the logo design */
         .nav-container .logo img {
             display: block;
             width: 105px;
@@ -73,7 +72,6 @@
             object-fit: contain;
         }
 
-        /* Footer logo: same artwork, with a light background so the dark mark is visible */
         footer .logo {
             display: inline-flex;
             align-items: center;
@@ -194,21 +192,6 @@
         .btn-outline:hover {
             border-color: var(--primary);
             color: var(--primary);
-        }
-
-        .hero-card-glow {
-            background: linear-gradient(135deg, rgba(92,0,24,0.08), rgba(135,0,33,0.08));
-            padding: 3rem;
-            border-radius: 2rem;
-            border: 1px solid var(--border);
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(92,0,24,0.05);
-        }
-
-        .hero-card-glow i {
-            font-size: 4rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
         }
 
         /* Sections General */
@@ -367,7 +350,7 @@
             gap: 1rem;
         }
 
-        /* Brands We've Handled Section - Exact 4 columns layout */
+        /* Brands We've Handled Section */
         .brands-section {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             border-radius: 2rem;
@@ -376,6 +359,7 @@
             color: white;
             text-align: center;
             box-shadow: 0 20px 40px rgba(92, 0, 24, 0.2);
+            overflow: hidden;
         }
 
         .brands-grid {
@@ -453,7 +437,7 @@
             transform: scale(1.12);
         }
 
-        /* Team / Portfolio Section (6 Members with Photos) */
+        /* Team Section */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -468,6 +452,8 @@
             transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
             padding-bottom: 2rem;
+            cursor: pointer;
+            position: relative;
         }
 
         .team-card:hover {
@@ -489,6 +475,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform .5s;
+        }
+
+        .team-card:hover .team-photo-container img {
+            transform: scale(1.08);
         }
 
         .team-name {
@@ -522,13 +513,21 @@
             font-weight: 600;
         }
 
-        /* Portfolio CTA + clickable team profiles */
+        .team-card .profile-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            margin-top: 1rem;
+            color: var(--primary);
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
         .portfolio-cta-wrap { display:flex; justify-content:center; margin: -1rem 0 2.5rem; }
         .portfolio-cta { display:inline-flex; align-items:center; justify-content:center; gap:.65rem; padding:.9rem 1.35rem; border-radius:999px; background:var(--primary); color:#fff; text-decoration:none; font-weight:700; box-shadow:0 10px 24px rgba(92,0,24,.16); transition:transform .25s, background .25s; }
         .portfolio-cta:hover { background:var(--primary-dark); transform:translateY(-3px); }
-        .team-card { cursor:pointer; position:relative; }
-        .team-card:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
-        .team-card .profile-hint { display:flex; align-items:center; justify-content:center; gap:.4rem; margin-top:1rem; color:var(--primary); font-size:.82rem; font-weight:700; }
+
         .profile-modal { position:fixed; inset:0; z-index:2000; display:none; align-items:center; justify-content:center; padding:1rem; background:rgba(25,5,12,.68); backdrop-filter:blur(6px); }
         .profile-modal.show { display:flex; }
         .profile-dialog { position:relative; width:min(100%,560px); max-height:88vh; overflow:auto; background:#fffafa; border:1px solid var(--border); border-radius:1.5rem; padding:2rem; box-shadow:0 25px 80px rgba(0,0,0,.25); }
@@ -539,10 +538,8 @@
         .profile-dialog p { color:var(--gray); margin-bottom:1rem; }
         .profile-skills { display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0 1.5rem; }
         .profile-skills span { background:var(--maroon-light); color:var(--primary); border-radius:999px; padding:.4rem .75rem; font-size:.82rem; font-weight:700; }
-        .profile-dialog .portfolio-cta { margin-top:.25rem; }
-        @media (max-width:600px) { .profile-dialog { padding:1.5rem 1.2rem; border-radius:1.2rem; } .portfolio-cta { width:100%; text-align:center; } .portfolio-cta-wrap { margin-top:0; padding:0 .25rem; } }
 
-        /* Footer: multi-column layout inspired by the reference */
+        /* Footer */
         footer {
             background:#38010e;
             color: #f8fafc;
@@ -609,22 +606,7 @@
             text-align: center;
         }
 
-        @media (max-width: 1000px) {
-            .footer-content { grid-template-columns: minmax(240px, 1.4fr) repeat(2, minmax(150px, 1fr)); }
-            .footer-brand { grid-column: 1 / -1; }
-            .footer-brand p { max-width: 620px; }
-        }
-        @media (max-width: 620px) {
-            footer { padding: 3rem 1.25rem 1.25rem; }
-            .footer-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.25rem; padding-bottom: 2rem; }
-            .footer-brand { grid-column: 1 / -1; }
-            .footer-column h3 { font-size: .98rem; margin-bottom: 1rem; }
-            .footer-column a { font-size: .9rem; }
-            .footer-column li { margin-bottom: .7rem; }
-            .copyright { font-size: .78rem; line-height: 1.7; }
-        }
-
-        /* ---------------- Chatbot Widget Styles ---------------- */
+        /* Chatbot Widget Styles */
         .chatbot-toggler {
             position: fixed;
             bottom: 25px;
@@ -816,103 +798,25 @@
             background: var(--accent);
         }
 
-        /* ---------------- Mobile Responsiveness Enhancements ---------------- */
-        @media (max-width: 992px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 8rem 1.5rem 4rem;
-                gap: 2.5rem;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .addon-section {
-                grid-template-columns: 1fr;
-                padding: 2rem;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 1rem;
-            }
-            .nav-links {
-                display: none; /* Can be enhanced or hidden on mobile */
-            }
-            .hero-content h1 {
-                font-size: 2.3rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .section-header h2 {
-                font-size: 2rem;
-            }
-            section {
-                padding: 3rem 1rem;
-            }
-            .brands-section {
-                padding: 3rem 1rem;
-                border-radius: 1.2rem;
-            }
-            .brands-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1.5rem 1rem;
-                max-width: 100%;
-            }
-            .brand-item {
-                width: 105px;
-                height: 105px;
-            }
-            .chat-popup {
-                width: calc(100vw - 20px);
-                right: 10px;
-                bottom: 80px;
-            }
-            .chatbot-toggler {
-                right: 15px;
-                bottom: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .package-card {
-                padding: 1.8rem 1.2rem;
-            }
-            .brand-item {
-                width: 90px;
-                height: 90px;
-            }
-        }
-
-        /* Brandingin visual refresh: photo-led, interactive and responsive */
+        /* Responsiveness */
         html { scroll-padding-top: 92px; }
         header { box-shadow: 0 8px 28px rgba(59,0,15,.035); }
         .nav-container { min-height: 86px; }
         .menu-toggle { display:none; border:1px solid var(--border); background:#fff; color:var(--primary); width:42px; height:42px; border-radius:12px; font-size:1.1rem; cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
-        .nav-links a { position:relative; padding:8px 0; }
-        .nav-links a::after { content:""; position:absolute; left:0; bottom:0; height:2px; width:0; background:var(--primary); transition:width .25s ease; }
-        .nav-links a:hover::after { width:100%; }
-        .hero { max-width:1280px; min-height:690px; padding:9.2rem 2rem 5rem; gap:3rem; }
-        .hero-content { position:relative; z-index:2; }
+        
         .eyebrow,.section-kicker { display:inline-flex; align-items:center; gap:.55rem; color:var(--primary); font-size:.76rem; font-weight:800; letter-spacing:.16em; margin-bottom:1.2rem; }
         .eyebrow { padding:.55rem .85rem; background:#f8e8ec; border:1px solid #f1d1d9; border-radius:99px; }
         .eyebrow-dot { width:7px; height:7px; border-radius:50%; background:#b62d52; box-shadow:0 0 0 4px rgba(182,45,82,.12); }
-        .hero-content h1 { font-size:clamp(2.8rem,5vw,4.55rem); letter-spacing:-.055em; line-height:1.06; max-width:650px; margin-bottom:1.4rem; }
-        .hero-content h1 span,.heading-accent { color:var(--primary); }
-        .hero-content p { max-width:560px; line-height:1.85; font-size:1.05rem; }
-        .hero-buttons { gap:.8rem; }
-        .hero-buttons .cta-btn,.hero-buttons .btn-outline { padding:.85rem 1.25rem; }
+        
         .hero-proof { display:flex; align-items:center; gap:.8rem; margin-top:2.2rem; }
         .proof-avatars { display:flex; padding-left:5px; }
         .proof-avatars span { width:31px; height:31px; display:grid; place-items:center; margin-left:-5px; border:2px solid var(--light); border-radius:50%; background:#5c0018; color:#fff; font-size:.68rem; font-weight:800; }
-        .proof-avatars span:nth-child(2) { background:#c17b88; }.proof-avatars span:nth-child(3) { background:#f0dce1; color:var(--primary); }
-        .hero-proof strong,.hero-proof small { display:block; }.hero-proof strong { font-size:.85rem; }.hero-proof small { color:var(--gray); font-size:.75rem; margin-top:2px; }
+        .proof-avatars span:nth-child(2) { background:#c17b88; }
+        .proof-avatars span:nth-child(3) { background:#f0dce1; color:var(--primary); }
+        .hero-proof strong,.hero-proof small { display:block; }
+        .hero-proof strong { font-size:.85rem; }
+        .hero-proof small { color:var(--gray); font-size:.75rem; margin-top:2px; }
+        
         .hero-visual { position:relative; min-height:470px; isolation:isolate; }
         .hero-photo { position:absolute; overflow:hidden; border-radius:26px; background:#f0dfe3; box-shadow:0 24px 65px rgba(75,0,20,.16); }
         .hero-photo img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1); }
@@ -924,56 +828,91 @@
         .photo-tag i { margin-right:7px; }
         .hero-floating-card { position:absolute; right:0; bottom:44px; display:flex; align-items:center; gap:.7rem; padding:.85rem 1rem; background:rgba(255,255,255,.96); border:1px solid rgba(255,255,255,.8); border-radius:17px; box-shadow:0 14px 40px rgba(45,0,12,.13); z-index:3; animation:floatCard 5s ease-in-out infinite; }
         .floating-icon { width:38px; height:38px; display:grid; place-items:center; border-radius:12px; background:#f8e8ec; color:var(--primary); }
-        .hero-floating-card strong,.hero-floating-card small { display:block; }.hero-floating-card strong { font-size:.83rem; }.hero-floating-card small { font-size:.7rem; color:var(--gray); }.floating-arrow { color:var(--primary); margin-left:.35rem; }
-        .hero-orbit { position:absolute; border:1px solid rgba(92,0,24,.12); border-radius:50%; z-index:-1; }.orbit-one { width:420px;height:420px;right:-20px;top:0; }.orbit-two { width:490px;height:490px;right:-55px;top:-35px; }
+        .hero-floating-card strong,.hero-floating-card small { display:block; }
+        .hero-floating-card strong { font-size:.83rem; }
+        .hero-floating-card small { font-size:.7rem; color:var(--gray); }
+        .floating-arrow { color:var(--primary); margin-left:.35rem; }
+        .hero-orbit { position:absolute; border:1px solid rgba(92,0,24,.12); border-radius:50%; z-index:-1; }
+        .orbit-one { width:420px;height:420px;right:-20px;top:0; }
+        .orbit-two { width:490px;height:490px;right:-55px;top:-35px; }
         @keyframes floatCard { 0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)} }
+
         .stats-strip { max-width:1120px; margin:0 auto 2rem; padding:1.35rem 2rem; display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:0 15px 40px rgba(92,0,24,.045); }
-        .stats-strip div { display:flex; align-items:center; justify-content:center; gap:.7rem; border-right:1px solid var(--border); }.stats-strip div:last-child { border:0; }.stats-strip strong { font-size:1.2rem; color:var(--primary); }.stats-strip span { font-size:.82rem; font-weight:600; }
+        .stats-strip div { display:flex; align-items:center; justify-content:center; gap:.7rem; border-right:1px solid var(--border); }
+        .stats-strip div:last-child { border:0; }
+        .stats-strip strong { font-size:1.2rem; color:var(--primary); }
+        .stats-strip span { font-size:.82rem; font-weight:600; }
+
         .service-showcase { max-width:1280px; }
-        .section-header { margin-bottom:2.5rem; }.section-header h2 { letter-spacing:-.04em; }.service-visual-grid { display:grid; grid-template-columns:1.15fr 1fr 1fr; gap:1.1rem; }
+        .service-visual-grid { display:grid; grid-template-columns:1.15fr 1fr 1fr; gap:1.1rem; }
         .service-visual-card { position:relative; min-height:365px; overflow:hidden; border-radius:23px; background:#3b000f; isolation:isolate; box-shadow:0 15px 40px rgba(59,0,15,.1); }
-        .service-visual-card img { width:100%; height:100%; position:absolute; inset:0; object-fit:cover; z-index:-2; transition:transform .7s ease; }.service-visual-card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(25,0,8,.03) 5%,rgba(25,0,8,.88) 100%); z-index:-1; }.service-visual-card:hover img { transform:scale(1.07); }
-        .service-visual-overlay { position:absolute; left:0; right:0; bottom:0; padding:1.6rem; color:#fff; }.service-visual-overlay span { font-size:.68rem; letter-spacing:.14em; font-weight:800; color:#f4bdca; }.service-visual-overlay h3 { font-size:1.45rem; line-height:1.2; margin:.6rem 0; letter-spacing:-.03em; }.service-visual-overlay p { font-size:.87rem; color:#f7e8eb; max-width:330px; line-height:1.7; }.service-visual-overlay a { display:grid; place-items:center; position:absolute; right:1.4rem; top:1.3rem; width:38px; height:38px; border-radius:50%; color:var(--primary); background:#fff; text-decoration:none; transition:transform .25s; }.service-visual-overlay a:hover { transform:rotate(45deg); }
-        .package-card:hover { transform:translateY(-8px); box-shadow:0 22px 50px rgba(92,0,24,.11); }
-        .brands-section { overflow:hidden; }
-        .team-card { box-shadow:0 12px 35px rgba(92,0,24,.035); }.team-photo-container img { transition:transform .5s; }.team-card:hover .team-photo-container img { transform:scale(1.08); }
-        .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }.reveal.is-visible { opacity:1; transform:translateY(0); }
-        .back-to-top { position:fixed; right:26px; bottom:94px; z-index:900; width:42px; height:42px; border:1px solid var(--border); border-radius:50%; background:#fff; color:var(--primary); box-shadow:0 8px 25px rgba(59,0,15,.12); cursor:pointer; opacity:0; pointer-events:none; transform:translateY(8px); transition:all .25s; }.back-to-top.visible { opacity:1; pointer-events:auto; transform:translateY(0); }
-        .cta-btn:focus-visible,.btn-outline:focus-visible,.menu-toggle:focus-visible,.nav-links a:focus-visible { outline:3px solid #d98b9d; outline-offset:4px; }
+        .service-visual-card img { width:100%; height:100%; position:absolute; inset:0; object-fit:cover; z-index:-2; transition:transform .7s ease; }
+        .service-visual-card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(25,0,8,.03) 5%,rgba(25,0,8,.88) 100%); z-index:-1; }
+        .service-visual-card:hover img { transform:scale(1.07); }
+        .service-visual-overlay { position:absolute; left:0; right:0; bottom:0; padding:1.6rem; color:#fff; }
+        .service-visual-overlay span { font-size:.68rem; letter-spacing:.14em; font-weight:800; color:#f4bdca; }
+        .service-visual-overlay h3 { font-size:1.45rem; line-height:1.2; margin:.6rem 0; letter-spacing:-.03em; }
+        .service-visual-overlay p { font-size:.87rem; color:#f7e8eb; max-width:330px; line-height:1.7; }
+        .service-visual-overlay a { display:grid; place-items:center; position:absolute; right:1.4rem; top:1.3rem; width:38px; height:38px; border-radius:50%; color:var(--primary); background:#fff; text-decoration:none; transition:transform .25s; }
+        .service-visual-overlay a:hover { transform:rotate(45deg); }
+
+        .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }
+        .reveal.is-visible { opacity:1; transform:translateY(0); }
+        
+        .back-to-top { position:fixed; right:26px; bottom:94px; z-index:900; width:42px; height:42px; border:1px solid var(--border); border-radius:50%; background:#fff; color:var(--primary); box-shadow:0 8px 25px rgba(59,0,15,.12); cursor:pointer; opacity:0; pointer-events:none; transform:translateY(8px); transition:all .25s; }
+        .back-to-top.visible { opacity:1; pointer-events:auto; transform:translateY(0); }
+
         @media (max-width: 992px) {
-            .hero { min-height:auto; padding-top:8.5rem; grid-template-columns:1fr 1fr; gap:1.5rem; }
-            .hero-visual { min-height:400px; }.hero-photo-main { height:325px; }.hero-photo-small { height:170px; }.hero-content h1 { font-size:clamp(2.5rem,5vw,3.5rem); }
-            .stats-strip { margin-left:1.5rem; margin-right:1.5rem; }.service-visual-grid { grid-template-columns:1fr 1fr; }.service-visual-card:first-child { grid-column:span 2; min-height:330px; }
-            .nav-links { gap:1rem; }
+            .hero { min-height:auto; padding-top:8.5rem; grid-template-columns:1fr 1fr; gap:1.5rem; text-align: left; }
+            .hero-visual { min-height:400px; }
+            .hero-photo-main { height:325px; }
+            .hero-photo-small { height:170px; }
+            .hero-content h1 { font-size:clamp(2.5rem,5vw,3.5rem); }
+            .stats-strip { margin-left:1.5rem; margin-right:1.5rem; }
+            .service-visual-grid { grid-template-columns:1fr 1fr; }
+            .service-visual-card:first-child { grid-column:span 2; min-height:330px; }
+            .addon-section { grid-template-columns:1fr; padding:2rem; gap:2rem; }
         }
+
         @media (max-width: 768px) {
             .nav-container { min-height:72px; padding:.65rem 1rem; gap:.7rem; position:relative; }
-            .menu-toggle { position:relative; z-index:1002; flex-shrink:0; pointer-events:auto; }
-            .nav-container .logo img { width:105px; }
             .menu-toggle { display:inline-grid; place-items:center; margin-left:auto; order:2; }
             header .cta-btn { padding:.65rem .85rem; font-size:.82rem; order:3; }
             .nav-links { display:none !important; visibility:hidden; opacity:0; pointer-events:none; position:absolute; left:12px; right:12px; top:calc(100% + 8px); flex-direction:column; align-items:stretch; gap:0; padding:.5rem; background:rgba(255,255,255,.99); border:1px solid var(--border); border-radius:16px; box-shadow:0 18px 45px rgba(59,0,15,.18); z-index:1001; }
-            .nav-links.open { display:flex !important; visibility:visible; opacity:1; pointer-events:auto; }.nav-links li a { display:block; padding:.9rem 1rem; border-radius:10px; min-height:44px; }.nav-links li a:hover { background:#fbebee; }.nav-links a::after { display:none; }
-            .hero { grid-template-columns:1fr; text-align:left; padding:7.4rem 1.2rem 3rem; gap:1.4rem; }.hero-content h1 { font-size:clamp(2.6rem,10vw,4rem); }.hero-content p { font-size:1rem; }.hero-buttons { justify-content:flex-start; }.hero-visual { min-height:360px; margin:0 .2rem; }.hero-photo-main { width:78%; height:300px; right:7%; }.hero-photo-small { width:43%; height:155px; }.hero-floating-card { bottom:20px; right:-2px; }.orbit-one { width:300px;height:300px;right:-5px; }.orbit-two { width:350px;height:350px;right:-25px; }
-            .stats-strip { grid-template-columns:1fr 1fr; padding:1rem; gap:.2rem; margin:0 1rem 1rem; }.stats-strip div { justify-content:flex-start; padding:.75rem .35rem; border-right:0; }.stats-strip span { font-size:.76rem; }
-            .service-visual-grid { grid-template-columns:1fr; }.service-visual-card:first-child { grid-column:auto; }.service-visual-card { min-height:330px; }.section-header { margin-bottom:2rem; }
-            .nav-links { z-index:2; }
+            .nav-links.open { display:flex !important; visibility:visible; opacity:1; pointer-events:auto; }
+            .nav-links li a { display:block; padding:.9rem 1rem; border-radius:10px; min-height:44px; }
+            .hero { grid-template-columns:1fr; padding:7.4rem 1.2rem 3rem; gap:1.4rem; }
+            .hero-content h1 { font-size:clamp(2.3rem,8vw,3.2rem); }
+            .hero-visual { min-height:360px; margin:0 .2rem; }
+            .hero-photo-main { width:78%; height:300px; right:7%; }
+            .hero-photo-small { width:43%; height:155px; }
+            .hero-floating-card { bottom:20px; right:-2px; }
+            .stats-strip { grid-template-columns:1fr 1fr; padding:1rem; gap:.2rem; margin:0 1rem 1rem; }
+            .stats-strip div { justify-content:flex-start; padding:.75rem .35rem; border-right:0; }
+            .service-visual-grid { grid-template-columns:1fr; }
+            .service-visual-card:first-child { grid-column:auto; }
+            .brands-section { padding: 3rem 1rem; border-radius: 1.2rem; }
+            .brands-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem 1rem; max-width: 100%; }
+            .brand-item { width: 105px; height: 105px; }
+            .footer-content { grid-template-columns: minmax(240px, 1.4fr) repeat(2, minmax(150px, 1fr)); }
+            .footer-brand { grid-column: 1 / -1; }
+            .chat-popup { width: calc(100vw - 20px); right: 10px; bottom: 80px; }
+            .chatbot-toggler { right: 15px; bottom: 15px; }
         }
+
         @media (max-width: 480px) {
-            .nav-container .logo img { width:94px; }.menu-toggle { width:38px;height:38px; }.hero { padding-left:1rem;padding-right:1rem; }.hero-content h1 { font-size:2.55rem; }.hero-buttons .cta-btn,.hero-buttons .btn-outline { padding:.75rem .95rem;font-size:.88rem; }.hero-visual { min-height:310px; }.hero-photo-main { height:255px; }.hero-photo-small { height:125px;border-width:5px; }.hero-floating-card { padding:.65rem .75rem; }.floating-icon { width:32px;height:32px; }.hero-floating-card strong { font-size:.75rem; }.hero-floating-card small { font-size:.65rem; }.photo-tag { left:14px;bottom:14px;font-size:.7rem; }.service-visual-card { min-height:300px; }.service-visual-overlay { padding:1.2rem; }.service-visual-overlay h3 { font-size:1.25rem; }
-            .addon-section { padding:1.2rem; }.addon-list li { font-size:.85rem; }.section-header h2 { font-size:1.8rem; }
+            .nav-container .logo img { width:94px; }
+            .hero { padding-left:1rem; padding-right:1rem; }
+            .hero-content h1 { font-size:2rem; }
+            .brand-item { width: 90px; height: 90px; }
+            .package-card { padding: 1.8rem 1.2rem; }
         }
-        @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; }.reveal { opacity:1; transform:none; } }
 
-
-        /* Full portfolio gallery: separate from the team profile cards */
+        /* Portfolio Gallery Section */
         .portfolio-gallery-section { max-width:1280px; }
-        .portfolio-gallery-section .section-header { max-width:760px; margin:0 auto 2.4rem; }
-        .portfolio-gallery-section .section-header p { max-width:700px; margin:0 auto; }
         .portfolio-gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.15rem; }
         .portfolio-slide { display:block; overflow:hidden; width:100%; padding:0; border:1px solid var(--border); border-radius:18px; background:#fff; color:var(--dark); text-align:left; cursor:pointer; box-shadow:0 12px 32px rgba(59,0,15,.055); transition:transform .25s, box-shadow .25s, border-color .25s; }
         .portfolio-slide:hover { transform:translateY(-5px); box-shadow:0 20px 42px rgba(59,0,15,.13); border-color:#d9a0ad; }
-        .portfolio-slide:focus-visible { outline:3px solid #d98b9d; outline-offset:4px; }
         .portfolio-slide-image { display:block; position:relative; aspect-ratio:16/9; overflow:hidden; background:#f4e7ea; }
         .portfolio-slide-image::after { content:"Klik untuk memperbesar"; position:absolute; inset:auto 0 0; padding:1.7rem .85rem .7rem; color:#fff; font-size:.75rem; font-weight:700; opacity:0; background:linear-gradient(transparent,rgba(30,0,8,.75)); transition:opacity .25s; }
         .portfolio-slide:hover .portfolio-slide-image::after { opacity:1; }
@@ -987,8 +926,7 @@
         .portfolio-slide-meta > span:nth-child(2) { min-width:0; flex:1; }
         .portfolio-slide-meta > i { color:var(--primary); font-size:.85rem; }
         .portfolio-gallery-footer { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:1rem; margin-top:2.2rem; text-align:center; }
-        .portfolio-gallery-footer p { color:var(--gray); }
-        .portfolio-gallery-footer .portfolio-cta { margin:0; }
+        
         .portfolio-viewer { position:fixed; inset:0; z-index:2000; display:flex; align-items:center; justify-content:center; gap:1rem; padding:5rem 4.5rem 2rem; background:rgba(25,5,10,.94); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s, visibility .2s; }
         .portfolio-viewer.show { opacity:1; visibility:visible; pointer-events:auto; }
         .portfolio-viewer-figure { display:flex; flex-direction:column; align-items:center; gap:.8rem; width:min(100%,1100px); max-height:100%; margin:0; }
@@ -1001,11 +939,11 @@
         .portfolio-viewer-close:hover,.portfolio-viewer-nav:hover { background:var(--primary); transform:scale(1.05); }
         .portfolio-viewer-close { top:1.3rem; right:1.4rem; font-size:1.2rem; }
         .portfolio-viewer-nav { top:50%; transform:translateY(-50%); }
-        .portfolio-viewer-nav:hover { transform:translateY(-50%) scale(1.05); }
-        .portfolio-viewer-prev { left:1.25rem; }.portfolio-viewer-next { right:1.25rem; }
-        @media (max-width:900px) { .portfolio-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.9rem; } .portfolio-viewer { padding:5rem 3.5rem 1.5rem; } }
-        @media (max-width:560px) { .portfolio-gallery-grid { grid-template-columns:1fr; gap:.85rem; } .portfolio-slide-meta { min-height:70px; } .portfolio-slide-meta strong { font-size:.88rem; } .portfolio-gallery-footer { flex-direction:column; } .portfolio-gallery-footer .portfolio-cta { width:100%; } .portfolio-viewer { padding:4.5rem .6rem 1rem; gap:.25rem; } .portfolio-viewer-figure img { max-height:calc(100vh - 190px); border-radius:5px; } .portfolio-viewer-nav { width:38px;height:38px; top:auto; bottom:1.2rem; transform:none; } .portfolio-viewer-nav:hover { transform:scale(1.05); } .portfolio-viewer-prev { left:calc(50% - 48px); }.portfolio-viewer-next { right:calc(50% - 48px); } .portfolio-viewer-figure figcaption { padding-bottom:3.3rem; gap:.35rem .6rem; } .portfolio-viewer-close { top:.7rem;right:.7rem;width:40px;height:40px; } }
+        .portfolio-viewer-prev { left:1.25rem; }
+        .portfolio-viewer-next { right:1.25rem; }
 
+        @media (max-width:900px) { .portfolio-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.9rem; } }
+        @media (max-width:560px) { .portfolio-gallery-grid { grid-template-columns:1fr; } }
     </style>
 </head>
 <body>
@@ -1148,184 +1086,116 @@
             <p style="color: #fce4e8;">Beberapa brand terpercaya yang telah sukses berkolaborasi bersama kami</p>
         </div>
         <div class="brands-grid">
-            <!-- Row 1 -->
             <a href="https://www.instagram.com/copycat_cbch/" target="_blank" rel="noopener noreferrer" class="brand-item">
                 <img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.2885-19/470002645_548763471297820_7012081745790669546_n.jpg?_nc_cat=101&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDM5LkMzIn0%3D&_nc_ohc=fDkf0nB8LJgQ7kNvwFF_2gg&_nc_oc=Ado3T_OavF1S0PlgE0W1HvzoNxdwDbioSSFAhboViKy-n1bH2h9EwTak0LhzI7Wls9w&_nc_zt=24&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_ss=7baaf&oh=00_AQOrAPEZDYuOul8QC23ZWhamw7h4Fpd0Xji2GSIJhIVidg&oe=6ACAB327" alt="CopyCat">
-                <div class="brand-overlay">
-                    <span>CopyCat</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
+                <div class="brand-overlay"><span>CopyCat</span><i class="fa-brands fa-instagram"></i></div>
             </a>
             <a href="https://www.instagram.com/umn_consulting/" target="_blank" rel="noopener noreferrer" class="brand-item">
                 <img src="https://scontent-cgk1-1.cdninstagram.com/v/t51.2885-19/272120520_350391729953802_7571051940697160173_n.jpg?_nc_cat=109&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=uA_u9EUNY90Q7kNvwF8Yv7f&_nc_oc=AdoqcWZLUGOeYA7dRoK1GP17psxHxbny9j-5C33bka6UyCMUNr0o78t7XRhrz8lJ7ao&_nc_zt=24&_nc_ht=scontent-cgk1-1.cdninstagram.com&_nc_ss=7baaf&oh=00_AQPBXjjnmBJEtlEqhEM9j43AMM_QaUxx3v7E1kNvggpHpA&oe=6ACA9384" alt="UMNC">
-                <div class="brand-overlay">
-                    <span>UMN Consulting</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
+                <div class="brand-overlay"><span>UMN Consulting</span><i class="fa-brands fa-instagram"></i></div>
             </a>
             <a href="https://instagram.com/cnailss.co" target="_blank" rel="noopener noreferrer" class="brand-item">
                 <img src="https://instagram.fcgk54-1.fna.fbcdn.net/v/t51.82787-19/779200918_17976776325109617_302799418085695911_n.jpg?_nc_cat=110&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy45NTcuQzMifQ%3D%3D&_nc_ohc=EB-PA8RGTEwQ7kNvwFqgJrE&_nc_oc=AdqOV501AerN5XfMezecbvd1epQyxcwj4uxmOSseypmX_ENMhp3BlDCrsjoRjpvh3IA&_nc_zt=24&_nc_ht=instagram.fcgk54-1.fna&_nc_gid=2HdpyvdnZLxNadWruSx25A&_nc_ss=7baaf&oh=00_AQOu4gceLeAs4mVRHj8FU4pRVYdgoU8ZzVkXUuB_ayOhKw&oe=6ACAA085" alt="Cnailss.co">
-                <div class="brand-overlay">
-                    <span>Cnailss.co</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
+                <div class="brand-overlay"><span>Cnailss.co</span><i class="fa-brands fa-instagram"></i></div>
             </a>
             <a href="https://instagram.com/furvitpet.indonesia" target="_blank" rel="noopener noreferrer" class="brand-item">
                 <img src="https://instagram.fcgk12-1.fna.fbcdn.net/v/t51.2885-19/409985523_729724969074865_8329572108788906051_n.jpg?_nc_cat=100&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=vvW246WRzckQ7kNvwEEx8xc&_nc_oc=Ado-iJpFTfivhFPLkcv-pdE79Q8Q2yOxVZHhgZ8rdkT5IILXOijmOtrht7afZaW_PKU&_nc_zt=24&_nc_ht=instagram.fcgk12-1.fna&_nc_ss=7baaf&oh=00_AQM0jdMyPWylJM20GnXUdaxSj2yKWR24vUXXp-4oXNuopw&oe=6ACAE024" alt="Furvit">
-                <div class="brand-overlay">
-                    <span>Furvit Pet indonesia</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
+                <div class="brand-overlay"><span>Furvit Pet indonesia</span><i class="fa-brands fa-instagram"></i></div>
             </a>
-
-            <!-- Row 2 -->
             <a href="https://www.instagram.com/nikenprinting/" target="_blank" rel="noopener noreferrer" class="brand-item">
                 <img src="https://scontent-sub1-1.cdninstagram.com/v/t51.82787-19/710537702_17905348104425290_354759762439996767_n.jpg?_nc_cat=105&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=abo5IA4EViYQ7kNvwER7uLO&_nc_oc=AdrRzYt5xY1Lepj49gPwM2y71dB3bqiTxgXnoNfd2vj7mlJtG1QfPzn5NSY-OWHgDcM&_nc_zt=24&_nc_ht=scontent-sub1-1.cdninstagram.com&_nc_gid=0FtoTvi7zVq7U9E-RNrW4w&_nc_ss=7baaf&oh=00_AQMnlzUb3JjB6qE7ox0pmFQX8fKNGEnrUcOote09_L8DuA&oe=6ACA9541" alt="Niken">
-                <div class="brand-overlay">
-                    <span>Niken Printing</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
+                <div class="brand-overlay"><span>Niken Printing</span><i class="fa-brands fa-instagram"></i></div>
             </a>
             <a href="https://www.instagram.com/dibaindonesia_/" target="_blank" rel="noopener noreferrer" class="brand-item">
                 <img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.82787-19/655334531_18041659412767685_2854944647931918204_n.jpg?_nc_cat=100&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy42MDQuQzMifQ%3D%3D&_nc_ohc=dO5ZHW7b9woQ7kNvwGWtVqt&_nc_oc=AdrumBQ2BexsoooJ9CTV12fvNqHKycrHZjQ1jz_4DhwiPUQcFRxVDgwkynSUeErI4v4&_nc_zt=24&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_gid=RneN40xsCyexMryg0-ESwQ&_nc_ss=7baaf&oh=00_AQNu9bGtBso2qa1-Fx6QEHYZ-33-NDJ2lyQM0AsLg_2uDw&oe=6ACA8256" alt="DIBA Indonesia">
-                <div class="brand-overlay">
-                    <span>DIBA Indonesia</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
+                <div class="brand-overlay"><span>DIBA Indonesia</span><i class="fa-brands fa-instagram"></i></div>
             </a>
             <a href="https://www.instagram.com/umndigitallearning/" target="_blank" rel="noopener noreferrer" class="brand-item">
                 <img src="https://scontent-sub1-1.cdninstagram.com/v/t51.2885-19/135094815_189118292930760_8971311189751987101_n.jpg?_nc_cat=109&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=-2lf1OxIj_cQ7kNvwFP643z&_nc_oc=AdpG9a7Bmyj3L4wCz4rT2jEGrWK-8S0dJLWuPyqmVgeqehJn0WS8ZjCzrPk2-DbKPe0&_nc_zt=24&_nc_ht=scontent-sub1-1.cdninstagram.com&_nc_ss=7baaf&oh=00_AQMpB7kFT0fmrxGT_1Bjw6CCrN39ywl2zvXR4cL93Gwj-w&oe=6ACAAE00" alt="UDL">
-                <div class="brand-overlay">
-                    <span>UMN Digital Learning</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
+                <div class="brand-overlay"><span>UMN Digital Learning</span><i class="fa-brands fa-instagram"></i></div>
             </a>
             <a href="https://www.instagram.com/warkopmboksarijem/" target="_blank" rel="noopener noreferrer" class="brand-item">
                 <img src="https://instagram.fcgk54-1.fna.fbcdn.net/v/t51.2885-19/490468990_1257511112655712_6827590670929461269_n.jpg?_nc_cat=102&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy45NzUuQzMifQ%3D%3D&_nc_ohc=IwnyiUTog2sQ7kNvwFr0c15&_nc_oc=AdpEL01TyCo2BhL5iwP81XoqvlBEYTZOXMnKC9vlXV-eOWn2ARCsoU5NJFAstEYBCEE&_nc_zt=24&_nc_ht=instagram.fcgk54-1.fna&_nc_ss=7baaf&oh=00_AQNWHio-OfXf9Hf5XAYHfVxd7SFDJtOgP9X_zKJjZF7KVA&oe=6ACA83C8" alt="Mbok Sarijem">
-                <div class="brand-overlay">
-                    <span>Warkop Mbok Sarijem</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
-            </a>
-
-            <!-- Row 3 -->
-            <a href="https://www.instagram.com/pixartistic.indonesia/" target="_blank" rel="noopener noreferrer" class="brand-item">
-                <img src="https://scontent-cgk2-1.cdninstagram.com/v/t51.2885-19/468730231_9182736628432603_7174637287058050570_n.jpg?_nc_cat=102&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDAwLkMzIn0%3D&_nc_ohc=W6a1ar8agXEQ7kNvwHkt8Pq&_nc_oc=AdqRXiXYwXjT12LXt63W3sisz9rwvQL6Tpbz3HVjLHdOc49EwiFHd__fI-CF4Jp_EuE&_nc_zt=24&_nc_ht=scontent-cgk2-1.cdninstagram.com&_nc_ss=7baaf&oh=00_AQOLQZVYK8jcFsGlG_rKW7l3GlEObCPp_MeNkFttlCnGOw&oe=6ACA8EA2" alt="Pixartistic">
-                <div class="brand-overlay">
-                    <span>Bixartistic</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
-            </a>
-            <a href="https://instagram.com/icecreamkarimata1981" target="_blank" rel="noopener noreferrer" class="brand-item">
-                <img src="https://scontent-cgk1-1.cdninstagram.com/v/t51.82787-19/729579037_18427409665130037_8870454714576712246_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=109&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=4fhWwmoKfWkQ7kNvwEchohH&_nc_oc=AdrBrSRj_HswnMw5SoWX9XDZBpdAn3Q7zWgyrTCRIxPEkHyJ5giEZppY6PZPHDc4_5I&_nc_zt=24&_nc_ht=scontent-cgk1-1.cdninstagram.com&_nc_gid=5EL98LPd_wfRHrA8NWZDlw&_nc_ss=7ba8c&oh=00_AQOWfkJsklbXcde8ZZDFf2BwuHhqWvzk3E4N4GN_-9sOiQ&oe=6ACAB9BC" alt="Ice Cream Karimata">
-                <div class="brand-overlay">
-                    <span>Karimata Ice Cream</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
-            </a>
-            <a href="https://www.instagram.com/safitravel.id/" target="_blank" rel="noopener noreferrer" class="brand-item">
-                <img src="https://scontent-cgk2-2.cdninstagram.com/v/t51.82787-19/522384373_17895200556254458_7281550784616104374_n.jpg?_nc_cat=100&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43NDguQzMifQ%3D%3D&_nc_ohc=-evApPoaoYwQ7kNvwGPRtkh&_nc_oc=AdpDSOt7wbJrVEywNeAaepeuVC4QffaxZH_RvtDY-TeoEoBD4gsYwCEL3Dmig5DwO20&_nc_zt=24&_nc_ht=scontent-cgk2-2.cdninstagram.com&_nc_gid=gHewQV4PcxyPtDkaUs9ckw&_nc_ss=7baaf&oh=00_AQOrybAYCgtZNZl6qe3dmh1dkHs7ere5dlCy7kyY5CH4FQ&oe=6ACABAF3" alt="Safi Travel">
-                <div class="brand-overlay">
-                    <span>Safi Travel</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
-            </a>
-            <a href="https://www.instagram.com/amanasnack/" target="_blank" rel="noopener noreferrer" class="brand-item">
-                <img src="https://scontent-sub1-1.cdninstagram.com/v/t51.2885-19/284586323_689843282309472_5170998730128129553_n.jpg?_nc_cat=111&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDM3LkMzIn0%3D&_nc_ohc=9rpvZyyq0mAQ7kNvwHssSTZ&_nc_oc=Adqht9qeTy8eesYbI5V-j51GuYiE7MKpkTmpB5WCqma8udMD4Lvtys-7f7vfY3eWb7M&_nc_zt=24&_nc_ht=scontent-sub1-1.cdninstagram.com&_nc_ss=7baaf&oh=00_AQMpyPgmHtGM2LFn7TQCORXTVcd7n4hHs3ph_3a66kwxUw&oe=6ACA9472" alt="Amanasnack">
-                <div class="brand-overlay">
-                    <span>Amanasnack</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
-            </a>
-
-            <!-- Row 4 -->
-            <a href="https://www.instagram.com/cattybonecathouse_cbch/" target="_blank" rel="noopener noreferrer" class="brand-item" style="grid-column: 2;">
-                <img src="https://scontent-sin2-2.cdninstagram.com/v/t51.2885-19/273933819_316808393826955_154382159749370314_n.jpg?_nc_cat=102&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43MzkuQzMifQ%3D%3D&_nc_ohc=YmXP-QYGwh8Q7kNvwHDZcbi&_nc_oc=Adq-_rWGxH6LdNC-v8vLTbpVD74k8N5Qrlz7dIp6zU2o_2lMx1pstwvUOOOByG1xxIo&_nc_zt=24&_nc_ht=scontent-sin2-2.cdninstagram.com&_nc_ss=7baaf&oh=00_AQMsndIL3XrlBDxJEcdCri5xIMCdRVfaRPv61kaLnAgDow&oe=6ACA9290" alt="Cattybone Cat House">
-                <div class="brand-overlay">
-                    <span>Cattybone Cat House</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
-            </a>
-            <a href="https://www.instagram.com/pazarseasonings/" target="_blank" rel="noopener noreferrer" class="brand-item" style="grid-column: 3;">
-                <img src="https://instagram.fcgk16-1.fna.fbcdn.net/v/t51.2885-19/11282783_656606941135904_1144107479_a.jpg?_nc_cat=111&_nc_map=urlgen_bucketless&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xNTAuQzMifQ%3D%3D&_nc_ohc=9ZUwSnkVy_AQ7kNvwHoREq0&_nc_oc=AdoBRj9PrqlZ7uoZ20wRR02GVQu1KpkYJ9OkgijVSO-jjcueFXFC0HsLnzX514amJy0&_nc_zt=24&_nc_ht=instagram.fcgk16-1.fna&_nc_ss=7baaf&oh=00_AQMyPprM3Ei82txoNgCFzD502mGqmgyvOk-erK1Tx00RFA&oe=6ACAB4A9" alt="Pazar Seasonings">
-                <div class="brand-overlay">
-                    <span>Pazar Seasonings</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
+                <div class="brand-overlay"><span>Warkop Mbok Sarijem</span><i class="fa-brands fa-instagram"></i></div>
             </a>
         </div>
     </section>
 
-
-    <!-- Portfolio proof section: full deck shown on-site, separate from team profiles -->
+    <!-- Portfolio Section (Asset Asli dari folder portfolio-pages/) -->
     <section id="portfolio" class="portfolio-gallery-section">
         <div class="section-header reveal">
             <span class="section-kicker">HASIL KARYA KAMI</span>
             <h2>Portofolio yang Bisa Kamu Lihat Langsung</h2>
-            <p>Ini beberapa bukti proses dan hasil kerja Brandingin—mulai dari konten media sosial, video, desain, sampai website. Klik salah satu gambar untuk melihat lebih jelas.</p>
+            <p>Bukti proses dan hasil kerja Brandingin—mulai dari konten media sosial, video, desain, sampai website. Klik salah satu gambar untuk memperbesar.</p>
         </div>
         <div class="portfolio-gallery-grid">
-            <button class="portfolio-slide reveal" type="button" data-slide="1" aria-label="Buka slide 1: Sampul Portofolio">
-                <span class="portfolio-slide-image"><img src="slide-01.jpg" loading="lazy" alt="Slide 1 portofolio Brandingin: Sampul Portofolio"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">01</span><span><strong>Sampul Portofolio</strong><small>Perkenalan visual Brandingin</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <button class="portfolio-slide reveal" type="button" data-slide="0" aria-label="Buka slide 1: Sampul Portofolio">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-01.jpg" loading="lazy" alt="Slide 1: Sampul Portofolio"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">01</span><span><strong>Sampul Portofolio</strong><small>Perkenalan visual Brandingin</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>
-            <button class="portfolio-slide reveal" type="button" data-slide="2" aria-label="Buka slide 2: Tentang Brandingin">
-                <span class="portfolio-slide-image"><img src="slide-02.jpg" loading="lazy" alt="Slide 2 portofolio Brandingin: Tentang Brandingin"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">02</span><span><strong>Tentang Brandingin</strong><small>Cerita singkat dan brand yang pernah ditangani</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <button class="portfolio-slide reveal" type="button" data-slide="1" aria-label="Buka slide 2: Tentang Brandingin">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-02.jpg" loading="lazy" alt="Slide 2: Tentang Brandingin"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">02</span><span><strong>Tentang Brandingin</strong><small>Cerita singkat dan brand yang pernah ditangani</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>
-            <button class="portfolio-slide reveal" type="button" data-slide="3" aria-label="Buka slide 3: Creative Tools">
-                <span class="portfolio-slide-image"><img src="slide-03.jpg" loading="lazy" alt="Slide 3 portofolio Brandingin: Creative Tools"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">03</span><span><strong>Creative Tools</strong><small>Tools yang dipakai untuk proses kreatif</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <button class="portfolio-slide reveal" type="button" data-slide="2" aria-label="Buka slide 3: Creative Tools">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-03.jpg" loading="lazy" alt="Slide 3: Creative Tools"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">03</span><span><strong>Creative Tools</strong><small>Tools yang dipakai untuk proses kreatif</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>    
+            <button class="portfolio-slide reveal" type="button" data-slide="9" aria-label="Buka slide 12: Cattybone Cat House">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-12.jpg" loading="lazy" alt="Slide 12: Cattybone Cat House"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">04</span><span><strong>Cattybone Cat House</strong><small>Konten media sosial dan insight engagement</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>
-            <button class="portfolio-slide reveal" type="button" data-slide="4" aria-label="Buka slide 4: Cattybone Cat House">
-                <span class="portfolio-slide-image"><img src="slide-12.jpg" loading="lazy" alt="Slide 4 portofolio Brandingin: Cattybone Cat House"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">4</span><span><strong>Cattybone Cat House</strong><small>Konten media sosial dan insight engagement</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <button class="portfolio-slide reveal" type="button" data-slide="10" aria-label="Buka slide 13: Project Video">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-13.jpg" loading="lazy" alt="Slide 13: Project Video"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">05</span><span><strong>Project Video</strong><small>Contoh video dan konten pendek</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>
-            <button class="portfolio-slide reveal" type="button" data-slide="5" aria-label="Buka slide 5: Project Video">
-                <span class="portfolio-slide-image"><img src="slide-13.jpg" loading="lazy" alt="Slide 5 portofolio Brandingin: Project Video"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">5</span><span><strong>Project Video</strong><small>Contoh video dan konten pendek</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <button class="portfolio-slide reveal" type="button" data-slide="11" aria-label="Buka slide 14: Website Creation">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-14.jpg" loading="lazy" alt="Slide 14: Website Creation"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">06</span><span><strong>Website Creation</strong><small>Contoh website dan tampilan digital</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>
-            <button class="portfolio-slide reveal" type="button" data-slide="6" aria-label="Buka slide 6: Website Creation">
-                <span class="portfolio-slide-image"><img src="slide-14.jpg" loading="lazy" alt="Slide 6 portofolio Brandingin: Website Creation"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">6</span><span><strong>Website Creation</strong><small>Contoh website dan tampilan digital</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <button class="portfolio-slide reveal" type="button" data-slide="12" aria-label="Buka slide 15: Website Creation Showcase">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-15.jpg" loading="lazy" alt="Slide 15: Website Creation Showcase"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">07</span><span><strong>Website Showcase</strong><small>Kumpulan hasil pembuatan website</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>
-            <button class="portfolio-slide reveal" type="button" data-slide="7" aria-label="Buka slide 7: Website Creation">
-                <span class="portfolio-slide-image"><img src="slide-15.jpg" loading="lazy" alt="Slide 7 portofolio Brandingin: Website Creation"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">7</span><span><strong>Website Creation</strong><small>Kumpulan hasil pembuatan website</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <button class="portfolio-slide reveal" type="button" data-slide="13" aria-label="Buka slide 16: Product Photo">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-16.jpg" loading="lazy" alt="Slide 16: Product Photo"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">08</span><span><strong>Product Photo</strong><small>Foto produk dan visual produk</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>
-            <button class="portfolio-slide reveal" type="button" data-slide="8" aria-label="Buka slide 8: Product Photo">
-                <span class="portfolio-slide-image"><img src="slide-16.jpg" loading="lazy" alt="Slide 8 portofolio Brandingin: Product Photo"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">8</span><span><strong>Product Photo</strong><small>Foto produk dan visual produk</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <button class="portfolio-slide reveal" type="button" data-slide="14" aria-label="Buka slide 17: Feed & Poster Design">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-17.jpg" loading="lazy" alt="Slide 17: Feed & Poster Design"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">09</span><span><strong>Feed &amp; Poster Design</strong><small>Desain feed media sosial dan poster</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>
-            <button class="portfolio-slide reveal" type="button" data-slide="9" aria-label="Buka slide 9: Feed &amp; Poster Design">
-                <span class="portfolio-slide-image"><img src="slide-17.jpg" loading="lazy" alt="Slide 9 portofolio Brandingin: Feed &amp; Poster Design"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">9</span><span><strong>Feed &amp; Poster Design</strong><small>Desain feed media sosial dan poster</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <button class="portfolio-slide reveal" type="button" data-slide="15" aria-label="Buka slide 18: Carousel Design">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-18.jpg" loading="lazy" alt="Slide 18: Carousel Design"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">10</span><span><strong>Carousel Design</strong><small>Desain konten carousel edukatif</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>
-            <button class="portfolio-slide reveal" type="button" data-slide="10" aria-label="Buka slide 10: Carousel Design">
-                <span class="portfolio-slide-image"><img src="slide-18.jpg" loading="lazy" alt="Slide 10 portofolio Brandingin: Carousel Design"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">10</span><span><strong>Carousel Design</strong><small>Desain konten carousel edukatif</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
-            </button>
-            <button class="portfolio-slide reveal" type="button" data-slide="11" aria-label="Buka slide 11: Product Feed Design">
-                <span class="portfolio-slide-image"><img src="slide-19.jpg" loading="lazy" alt="Slide 11 portofolio Brandingin: Product Feed Design"></span>
-                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">11</span><span><strong>Product Feed Design</strong><small>Visual feed untuk promosi produk</small></span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            <button class="portfolio-slide reveal" type="button" data-slide="16" aria-label="Buka slide 19: Product Feed Design">
+                <span class="portfolio-slide-image"><img src="portfolio-pages/slide-19.jpg" loading="lazy" alt="Slide 19: Product Feed Design"></span>
+                <span class="portfolio-slide-meta"><span class="portfolio-slide-number">11</span><span><strong>Product Feed Design</strong><small>Visual feed untuk promosi produk</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </button>
         </div>
         <div class="portfolio-gallery-footer reveal">
             <p>Mau lihat versi asli atau menjelajahi portofolio dari Canva?</p>
-            <a class="portfolio-cta" href="https://canva.link/mw6zopv8xwyvg0q" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Buka Portofolio di Canva</a>
+            <a class="portfolio-cta" href="https://canva.link/mw6zopv8xwyvg0q" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Portofolio di Canva</a>
         </div>
     </section>
 
     <!-- Portfolio slide viewer -->
     <div class="portfolio-viewer" id="portfolioViewer" role="dialog" aria-modal="true" aria-label="Tampilan slide portofolio" aria-hidden="true">
-        <button class="portfolio-viewer-close" id="portfolioViewerClose" type="button" aria-label="Tutup portofolio"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
-        <button class="portfolio-viewer-nav portfolio-viewer-prev" id="portfolioViewerPrev" type="button" aria-label="Slide sebelumnya"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-        <figure class="portfolio-viewer-figure"><img id="portfolioViewerImage" src="portfolio-pages/slide-01.jpg" alt="Slide portofolio Brandingin"><figcaption><span id="portfolioViewerCount">01 / 20</span><strong id="portfolioViewerTitle">Sampul Portofolio</strong><small id="portfolioViewerDesc">Perkenalan visual Brandingin</small></figcaption></figure>
-        <button class="portfolio-viewer-nav portfolio-viewer-next" id="portfolioViewerNext" type="button" aria-label="Slide berikutnya"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="portfolio-viewer-close" id="portfolioViewerClose" type="button" aria-label="Tutup portofolio"><i class="fa-solid fa-xmark"></i></button>
+        <button class="portfolio-viewer-nav portfolio-viewer-prev" id="portfolioViewerPrev" type="button" aria-label="Slide sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+        <figure class="portfolio-viewer-figure">
+            <img id="portfolioViewerImage" src="portfolio-pages/slide-01.jpg" alt="Slide portofolio Brandingin">
+            <figcaption>
+                <span id="portfolioViewerCount">01 / 17</span>
+                <strong id="portfolioViewerTitle">Sampul Portofolio</strong>
+                <small id="portfolioViewerDesc">Perkenalan visual Brandingin</small>
+            </figcaption>
+        </figure>
+        <button class="portfolio-viewer-nav portfolio-viewer-next" id="portfolioViewerNext" type="button" aria-label="Slide berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
-    <!-- Team Section (6 Members with Photos) -->
+    <!-- Team Section -->
     <section id="team" style="background: white; border-radius: 2rem; border: 1px solid var(--border);">
         <div class="section-header">
             <h2>Kenalan Sama Tim Kami</h2>
@@ -1333,91 +1203,72 @@
         </div>
 
         <div class="team-grid">
-            <!-- Member 1 -->
-            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Nur Liany" data-profile="0">
-                <div class="team-photo-container">
-                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Nur Liani">
-                </div>
+            <div class="team-card profile-trigger" role="button" tabindex="0" data-profile="0">
+                <div class="team-photo-container"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Nur Liani"></div>
                 <div class="team-name">Nur Liani</div>
                 <div class="team-role">Creative Conceptor</div>
-                <p class="team-bio">Berawal dari ketertarikan pada dunia kreatif, Nur berfokus mengembangkan ide menjadi konten yang punya arah dan karakter. Terbiasa menyusun content plan, editing, copywriting, dan kolaborasi brand sebagai Personal Assistant content creator.</p>
+                <p class="team-bio">Berawal dari ketertarikan pada dunia kreatif, Nur berfokus mengembangkan ide menjadi konten yang punya arah dan karakter.</p>
                 <div class="team-portfolio">Keahlian: Creative concepting • Content planning</div>
-                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right"></i></div>
             </div>
 
-            <!-- Member 2 -->
-            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Yose Aprian" data-profile="1">
-                <div class="team-photo-container">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Abyan Dzakwan Permana">
-                </div>
-                <div class="team-name">Abyan Dzakwan Permana</div>
-                <div class="team-role">Content Strategist • Social Media Officer</div>
-                <p class="team-bio">Yose percaya konten bukan cuma soal terlihat menarik, tapi juga bagaimana ide disampaikan dengan tepat. Fokusnya ada pada strategi konten, pengelolaan media sosial, penulisan konten, visual, dan storytelling.</p>
-                <div class="team-portfolio">Keahlian: Content strategy • Social media</div>
-                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
-            </div>
-
-            <!-- Member 3 -->
-            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Abyan Dzakwan Permana" data-profile="2">
-                <div class="team-photo-container">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Yose Aprian Simarmata">
-                </div>
+            <div class="team-card profile-trigger" role="button" tabindex="0" data-profile="1">
+                <div class="team-photo-container"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Yose Aprian"></div>
                 <div class="team-name">Yose Aprian Simarmata</div>
+                <div class="team-role">Content Strategist • Social Media Officer</div>
+                <p class="team-bio">Yose percaya konten bukan cuma soal terlihat menarik, tapi juga bagaimana ide disampaikan dengan tepat.</p>
+                <div class="team-portfolio">Keahlian: Content strategy • Social media</div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+
+            <div class="team-card profile-trigger" role="button" tabindex="0" data-profile="2">
+                <div class="team-photo-container"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Abyan Dzakwan Permana"></div>
+                <div class="team-name">Abyan Dzakwan Permana</div>
                 <div class="team-role">Website Developer • Content Strategist</div>
-                <p class="team-bio">Abyan memadukan strategi bisnis dan kreativitas—mulai dari membangun website, menyusun strategi konten, sampai video editing untuk membantu brand menyampaikan cerita dan membangun koneksi dengan audiens.</p>
+                <p class="team-bio">Abyan memadukan strategi bisnis dan kreativitas—mulai dari membangun website, menyusun strategi konten, sampai video editing.</p>
                 <div class="team-portfolio">Keahlian: Website development • Content strategy</div>
-                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right"></i></div>
             </div>
 
-            <!-- Member 4 -->
-            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Mika Medi Ariansyah" data-profile="3">
-                <div class="team-photo-container">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Sinta Andriani">
-                </div>
-                <div class="team-name">Sinta Andriani</div>
-                <div class="team-role">Brand Partnership</div>
-                <p class="team-bio">Bagi Mika, partnership bukan sekadar kerja sama, tapi juga soal membangun kepercayaan, memahami kebutuhan tiap pihak, dan menciptakan hubungan yang berkelanjutan. Fokus pada pengembangan partnership dan kolaborasi strategis.</p>
-                <div class="team-portfolio">Keahlian: Partnership development • Strategic collaboration</div>
-                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
-            </div>
-
-            <!-- Member 5 -->
-            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Sinta Andriani" data-profile="4">
-                <div class="team-photo-container">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Mika Medi Ariansyah">
-                </div>
+            <div class="team-card profile-trigger" role="button" tabindex="0" data-profile="3">
+                <div class="team-photo-container"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Mika Medi Ariansyah"></div>
                 <div class="team-name">Mika Medi Ariansyah</div>
-                <div class="team-role">Social Media & Content Editing</div>
-                <p class="team-bio">Sinta tertarik pada social media dan digital marketing. Ia terbiasa mengembangkan ide konten, copywriting, mengelola media sosial, serta mengikuti tren untuk membantu meningkatkan engagement dan brand awareness.</p>
-                <div class="team-portfolio">Keahlian: Social media management • Copywriting</div>
-                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+                <div class="team-role">Brand Partnership</div>
+                <p class="team-bio">Bagi Mika, partnership bukan sekadar kerja sama, tapi juga soal membangun kepercayaan dan hubungan berkelanjutan.</p>
+                <div class="team-portfolio">Keahlian: Partnership development • Strategic collaboration</div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right"></i></div>
             </div>
 
-            <!-- Member 6 -->
-            <div class="team-card profile-trigger" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Lihat profil Aura Aulia Rahma" data-profile="5">
-                <div class="team-photo-container">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Aura aulia Rahma">
-                </div>
+            <div class="team-card profile-trigger" role="button" tabindex="0" data-profile="4">
+                <div class="team-photo-container"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Sinta Andriani"></div>
+                <div class="team-name">Sinta Andriani</div>
+                <div class="team-role">Social Media & Content Editing</div>
+                <p class="team-bio">Sinta tertarik pada social media dan digital marketing. Ia terbiasa mengembangkan ide konten dan copywriting.</p>
+                <div class="team-portfolio">Keahlian: Social media management • Copywriting</div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+
+            <div class="team-card profile-trigger" role="button" tabindex="0" data-profile="5">
+                <div class="team-photo-container"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" loading="lazy" alt="Aura Aulia Rahma"></div>
                 <div class="team-name">Aura Aulia Rahma</div>
                 <div class="team-role">Graphic Design & Content Editing</div>
-                <p class="team-bio">Aura punya ketertarikan pada desain, seni, dan kreativitas. Ia senang membuat desain untuk media sosial dan mengeksplorasi ide visual yang menarik serta punya nilai estetika.</p>
+                <p class="team-bio">Aura punya ketertarikan pada desain, seni, dan kreativitas. Ia senang mengeksplorasi ide visual yang estetis.</p>
                 <div class="team-portfolio">Keahlian: Graphic design • Social media design</div>
-                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div>
+                <div class="profile-hint">Lihat profil <i class="fa-solid fa-arrow-right"></i></div>
             </div>
         </div>
     </section>
 
-
-    <!-- Popup profil anggota tim -->
-    <div class="profile-modal" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="profileModalName" aria-hidden="true">
+    <!-- Modal Profil Team -->
+    <div class="profile-modal" id="profileModal" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="profile-dialog">
-            <button class="profile-close" id="profileClose" type="button" aria-label="Tutup profil"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            <button class="profile-close" id="profileClose" type="button" aria-label="Tutup profil"><i class="fa-solid fa-xmark"></i></button>
             <div class="profile-kicker">Kenalan lebih dekat</div>
             <h3 id="profileModalName">Nama anggota</h3>
             <div class="profile-role" id="profileModalRole"></div>
             <p id="profileModalBio"></p>
             <div class="profile-skills" id="profileModalSkills"></div>
-            <a class="portfolio-cta" href="https://canva.link/mw6zopv8xwyvg0q" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Lihat Portofolio Lengkap</a>
+            <a class="portfolio-cta" href="https://canva.link/mw6zopv8xwyvg0q" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Portofolio Lengkap</a>
         </div>
     </div>
 
@@ -1427,11 +1278,11 @@
             <div class="footer-brand">
                 <a href="#home" class="logo" aria-label="Brandingin - Beranda"><img src="logo.png" alt="Brandingin"></a>
                 <p>Punya bisnis yang pengin makin dikenal? Brandingin bantu bikin konten yang menarik, ngurus media sosial, sampai bikin website yang cocok sama karakter brand kamu. Yuk, tumbuh bareng!</p>
-                <div class="social-icons" aria-label="Media sosial Brandingin">
-                    <a href="https://www.facebook.com/people/Brandingin-Connect/pfbid02aHvK8SmTUqdMdhjkZLTjcjTNx986pGsjfGCQiwbqVypcA48u7NNGnyKrWB33ejBDl/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Brandingin"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/branding.inproject/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Brandingin"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@brandingin.project" target="_blank" rel="noopener noreferrer" aria-label="TikTok Brandingin"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Brandingin"><i class="fa-brands fa-whatsapp"></i></a>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/people/Brandingin-Connect/pfbid02aHvK8SmTUqdMdhjkZLTjcjTNx986pGsjfGCQiwbqVypcA48u7NNGnyKrWB33ejBDl/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/branding.inproject/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@brandingin.project" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-column">
@@ -1466,10 +1317,8 @@
         <div class="copyright">&copy; 2026 Brandingin. Dibuat dengan ide dan semangat kreatif.</div>
     </footer>
 
-    <!-- Chatbot Widget Elements -->
-    <button class="chatbot-toggler" id="chatbotToggler">
-        <i class="fa-solid fa-comments"></i>
-    </button>
+    <!-- Chatbot Widget -->
+    <button class="chatbot-toggler" id="chatbotToggler"><i class="fa-solid fa-comments"></i></button>
 
     <div class="chat-popup" id="chatPopup">
         <div class="chat-header">
@@ -1483,9 +1332,7 @@
             <button class="close-chat" id="closeChat"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="chat-body" id="chatBody">
-            <div class="chat-message bot">
-                Halo! 👋 Selamat datang di Brandingin. Ada yang bisa kami bantu terkait paket digital marketing atau jasa pembuatan website kami?
-            </div>
+            <div class="chat-message bot">Halo! 👋 Selamat datang di Brandingin. Ada yang bisa kami bantu terkait paket digital marketing atau jasa pembuatan website kami?</div>
         </div>
         <div class="quick-replies">
             <button class="quick-reply-btn" onclick="sendQuickReply('Info Paket Harga')">💰 Info Paket</button>
@@ -1498,38 +1345,28 @@
         </div>
     </div>
 
-    <!-- Chatbot JavaScript Logic -->
     <script>
-
-        // Mobile navigation: touch-friendly and closes after selecting a section
+        // Navigasi Mobile
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         function setMobileNav(open) {
             if (!menuToggle || !navLinks) return;
             navLinks.classList.toggle('open', open);
             menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-            menuToggle.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
-            menuToggle.innerHTML = open ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>' : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+            menuToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
         }
         if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', function (event) {
-                event.preventDefault();
-                event.stopPropagation();
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
                 setMobileNav(!navLinks.classList.contains('open'));
             });
             navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMobileNav(false)));
-            document.addEventListener('click', event => {
-                if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) setMobileNav(false);
-            });
-            document.addEventListener('keydown', event => {
-                if (event.key === 'Escape') setMobileNav(false);
-            });
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 768) setMobileNav(false);
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) setMobileNav(false);
             });
         }
 
-        // Gentle reveal-on-scroll animation
+        // Reveal Animation
         const revealItems = document.querySelectorAll('.reveal');
         if ('IntersectionObserver' in window) {
             const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -1539,107 +1376,115 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.12 });
+            }, { threshold: 0.1 });
             revealItems.forEach(item => revealObserver.observe(item));
         } else {
             revealItems.forEach(item => item.classList.add('is-visible'));
         }
 
-        // Back to top control
+        // Back to top
         const backToTop = document.createElement('button');
         backToTop.className = 'back-to-top';
         backToTop.type = 'button';
-        backToTop.setAttribute('aria-label', 'Kembali ke atas');
         backToTop.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
         document.body.appendChild(backToTop);
-        window.addEventListener('scroll', () => backToTop.classList.toggle('visible', window.scrollY > 500), { passive: true });
+        window.addEventListener('scroll', () => backToTop.classList.toggle('visible', window.scrollY > 500));
         backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-
-        // Team profile popups: keyboard and touch friendly
+        // Team Profiles Modal
         const teamProfiles = [
-            { name: 'Nur Liany', role: 'Creative Conceptor', bio: 'Berawal dari ketertarikan pada dunia kreatif, Nur berfokus mengembangkan ide menjadi konten yang punya arah dan karakter. Terbiasa menyusun content plan, editing, copywriting, dan kolaborasi brand sebagai Personal Assistant content creator.', skills: ['Creative concepting','Content planning','Copywriting','Brand collaboration'] },
-            { name: 'Yose Aprian', role: 'Content Strategist • Social Media Officer', bio: 'Yose percaya konten bukan cuma soal terlihat menarik, tapi juga bagaimana ide disampaikan dengan tepat. Fokusnya ada pada strategi konten, pengelolaan media sosial, penulisan konten, visual, dan storytelling.', skills: ['Content strategy','Social media','Content writing','Visual storytelling'] },
-            { name: 'Abyan Dzakwan Permana', role: 'Website Developer • Content Strategist', bio: 'Abyan memadukan strategi bisnis dan kreativitas—mulai dari membangun website, menyusun strategi konten, sampai video editing untuk membantu brand menyampaikan cerita dan membangun koneksi dengan audiens.', skills: ['Website development','Content strategy','Video editing','Digital commerce'] },
-            { name: 'Mika Medi Ariansyah', role: 'Brand Partnership', bio: 'Bagi Mika, partnership bukan sekadar kerja sama, tapi juga soal membangun kepercayaan, memahami kebutuhan tiap pihak, dan menciptakan hubungan yang berkelanjutan. Fokus pada pengembangan partnership dan kolaborasi strategis.', skills: ['Partnership development','Strategic collaboration','Brand relations'] },
-            { name: 'Sinta Andriani', role: 'Social Media & Content Editing', bio: 'Sinta tertarik pada social media dan digital marketing. Ia terbiasa mengembangkan ide konten, copywriting, mengelola media sosial, serta mengikuti tren untuk membantu meningkatkan engagement dan brand awareness.', skills: ['Social media management','Copywriting','Content editing','Graphic design'] },
-            { name: 'Aura Aulia Rahma', role: 'Graphic Design & Content Editing', bio: 'Aura punya ketertarikan pada desain, seni, dan kreativitas. Ia senang membuat desain untuk media sosial dan mengeksplorasi ide visual yang menarik serta punya nilai estetika.', skills: ['Graphic design','Social media design','Creative content','Visual branding'] }
+            { name: 'Nur Liany', role: 'Creative Conceptor', bio: 'Berawal dari ketertarikan pada dunia kreatif, Nur berfokus mengembangkan ide menjadi konten yang punya arah dan karakter.', skills: ['Creative concepting','Content planning','Copywriting'] },
+            { name: 'Yose Aprian Simarmata', role: 'Content Strategist • Social Media Officer', bio: 'Yose percaya konten bukan cuma soal terlihat menarik, tapi juga bagaimana ide disampaikan dengan tepat.', skills: ['Content strategy','Social media','Visual storytelling'] },
+            { name: 'Abyan Dzakwan Permana', role: 'Website Developer • Content Strategist', bio: 'Abyan memadukan strategi bisnis dan kreativitas—mulai dari membangun website hingga strategi konten.', skills: ['Website development','Content strategy','Video editing'] },
+            { name: 'Mika Medi Ariansyah', role: 'Brand Partnership', bio: 'Fokus pada pengembangan partnership dan kolaborasi strategis untuk menciptakan dampak berkelanjutan.', skills: ['Partnership development','Brand relations'] },
+            { name: 'Sinta Andriani', role: 'Social Media & Content Editing', bio: 'Sinta tertarik pada social media dan digital marketing untuk meningkatkan engagement brand.', skills: ['Social media management','Copywriting'] },
+            { name: 'Aura Aulia Rahma', role: 'Graphic Design & Content Editing', bio: 'Aura senang membuat desain untuk media sosial dan mengeksplorasi ide visual estetis.', skills: ['Graphic design','Visual branding'] }
         ];
+
         const profileModal = document.getElementById('profileModal');
         const profileClose = document.getElementById('profileClose');
-        const openProfile = (card) => {
-            const profile = teamProfiles[Number(card.dataset.profile)];
-            if (!profile) return;
-            document.getElementById('profileModalName').textContent = profile.name;
-            document.getElementById('profileModalRole').textContent = profile.role;
-            document.getElementById('profileModalBio').textContent = profile.bio;
-            const skillBox = document.getElementById('profileModalSkills');
-            skillBox.replaceChildren();
-            profile.skills.forEach(skill => { const tag = document.createElement('span'); tag.textContent = skill; skillBox.appendChild(tag); });
-            profileModal.classList.add('show');
-            profileModal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            profileClose.focus();
-        };
-        const closeProfile = () => {
-            profileModal.classList.remove('show');
-            profileModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        };
+
         document.querySelectorAll('.profile-trigger').forEach(card => {
-            card.addEventListener('click', () => openProfile(card));
-            card.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openProfile(card); } });
+            card.addEventListener('click', () => {
+                const profile = teamProfiles[Number(card.dataset.profile)];
+                if (!profile) return;
+                document.getElementById('profileModalName').textContent = profile.name;
+                document.getElementById('profileModalRole').textContent = profile.role;
+                document.getElementById('profileModalBio').textContent = profile.bio;
+                const skillBox = document.getElementById('profileModalSkills');
+                skillBox.replaceChildren();
+                profile.skills.forEach(skill => {
+                    const tag = document.createElement('span');
+                    tag.textContent = skill;
+                    skillBox.appendChild(tag);
+                });
+                profileModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
         });
-        profileClose.addEventListener('click', closeProfile);
-        profileModal.addEventListener('click', event => { if (event.target === profileModal) closeProfile(); });
-        document.addEventListener('keydown', event => { if (event.key === 'Escape' && profileModal.classList.contains('show')) closeProfile(); });
 
+        profileClose.addEventListener('click', () => {
+            profileModal.classList.remove('show');
+            document.body.style.overflow = '';
+        });
 
-        // Interactive portfolio viewer: opens each portfolio page, with next/previous controls.
-        const portfolioSlides = [{"src": "portfolio-pages/slide-01.jpg", "title": "Sampul Portofolio", "desc": "Perkenalan visual Brandingin"}, {"src": "portfolio-pages/slide-02.jpg", "title": "Tentang Brandingin", "desc": "Cerita singkat dan brand yang pernah ditangani"}, {"src": "portfolio-pages/slide-03.jpg", "title": "Creative Tools", "desc": "Tools yang dipakai untuk proses kreatif"}, {"src": "portfolio-pages/slide-04.jpg", "title": "Our Team", "desc": "Kenalan dengan orang-orang di balik Brandingin"}, {"src": "portfolio-pages/slide-05.jpg", "title": "Nur Liany", "desc": "Creative concepting dan content planning"}, {"src": "portfolio-pages/slide-06.jpg", "title": "Yose Aprian", "desc": "Strategi konten dan pengelolaan media sosial"}, {"src": "portfolio-pages/slide-07.jpg", "title": "Abyan Dzakwan", "desc": "Website development dan content strategy"}, {"src": "portfolio-pages/slide-08.jpg", "title": "Mika Medi Ariansyah", "desc": "Partnership dan kolaborasi"}, {"src": "portfolio-pages/slide-09.jpg", "title": "Sinta Andriani", "desc": "Social media dan content editing"}, {"src": "portfolio-pages/slide-10.jpg", "title": "Aura Aulia Rahma", "desc": "Graphic design dan content editing"}, {"src": "portfolio-pages/slide-11.jpg", "title": "Our Project", "desc": "Pilihan hasil kerja Brandingin"}, {"src": "portfolio-pages/slide-12.jpg", "title": "Cattybone Cat House", "desc": "Konten media sosial dan insight engagement"}, {"src": "portfolio-pages/slide-13.jpg", "title": "Project Video", "desc": "Contoh video dan konten pendek"}, {"src": "portfolio-pages/slide-14.jpg", "title": "Website Creation", "desc": "Contoh website dan tampilan digital"}, {"src": "portfolio-pages/slide-15.jpg", "title": "Website Creation", "desc": "Kumpulan hasil pembuatan website"}, {"src": "portfolio-pages/slide-16.jpg", "title": "Product Photo", "desc": "Foto produk dan visual produk"}, {"src": "portfolio-pages/slide-17.jpg", "title": "Feed & Poster Design", "desc": "Desain feed media sosial dan poster"}, {"src": "portfolio-pages/slide-18.jpg", "title": "Carousel Design", "desc": "Desain konten carousel edukatif"}, {"src": "portfolio-pages/slide-19.jpg", "title": "Product Feed Design", "desc": "Visual feed untuk promosi produk"}, {"src": "portfolio-pages/slide-20.jpg", "title": "Let’s Work With Us", "desc": "Informasi kontak Brandingin"}];
+        // Portfolio Viewer Script (Asset dari portfolio-pages/)
+        const portfolioSlides = [
+            { src: "portfolio-pages/slide-01.jpg", title: "Sampul Portofolio", desc: "Perkenalan visual Brandingin" },
+            { src: "portfolio-pages/slide-02.jpg", title: "Tentang Brandingin", desc: "Cerita singkat dan brand yang pernah ditangani" },
+            { src: "portfolio-pages/slide-03.jpg", title: "Creative Tools", desc: "Tools yang dipakai untuk proses kreatif" },
+            { src: "portfolio-pages/slide-04.jpg", title: "Our Team", desc: "Kenalan dengan orang-orang di balik Brandingin" },
+            { src: "portfolio-pages/slide-05.jpg", title: "Nur Liany", desc: "Creative concepting dan content planning" },
+            { src: "portfolio-pages/slide-06.jpg", title: "Yose Aprian", desc: "Strategi konten dan pengelolaan media sosial" },
+            { src: "portfolio-pages/slide-07.jpg", title: "Abyan Dzakwan", desc: "Website development dan content strategy" },
+            { src: "portfolio-pages/slide-08.jpg", title: "Mika Medi Ariansyah", desc: "Partnership dan kolaborasi" },
+            { src: "portfolio-pages/slide-11.jpg", title: "Our Project", desc: "Pilihan hasil kerja Brandingin" },
+            { src: "portfolio-pages/slide-12.jpg", title: "Cattybone Cat House", desc: "Konten media sosial dan insight engagement" },
+            { src: "portfolio-pages/slide-13.jpg", title: "Project Video", desc: "Contoh video dan konten pendek" },
+            { src: "portfolio-pages/slide-14.jpg", title: "Website Creation", desc: "Contoh website dan tampilan digital" },
+            { src: "portfolio-pages/slide-15.jpg", title: "Website Showcase", desc: "Kumpulan hasil pembuatan website" },
+            { src: "portfolio-pages/slide-16.jpg", title: "Product Photo", desc: "Foto produk dan visual produk" },
+            { src: "portfolio-pages/slide-17.jpg", title: "Feed & Poster Design", desc: "Desain feed media sosial dan poster" },
+            { src: "portfolio-pages/slide-18.jpg", title: "Carousel Design", desc: "Desain konten carousel edukatif" },
+            { src: "portfolio-pages/slide-19.jpg", title: "Product Feed Design", desc: "Visual feed untuk promosi produk" },
+            { src: "portfolio-pages/slide-20.jpg", title: "Let’s Work With Us", desc: "Informasi kontak Brandingin" }
+        ];
+
         const portfolioViewer = document.getElementById('portfolioViewer');
         const portfolioViewerImage = document.getElementById('portfolioViewerImage');
         const portfolioViewerCount = document.getElementById('portfolioViewerCount');
         const portfolioViewerTitle = document.getElementById('portfolioViewerTitle');
         const portfolioViewerDesc = document.getElementById('portfolioViewerDesc');
         const portfolioViewerClose = document.getElementById('portfolioViewerClose');
+
         let currentPortfolioSlide = 0;
-        let previousFocus = null;
-        const renderPortfolioSlide = (index) => {
+
+        function renderPortfolioSlide(index) {
             currentPortfolioSlide = (index + portfolioSlides.length) % portfolioSlides.length;
             const slide = portfolioSlides[currentPortfolioSlide];
             portfolioViewerImage.src = slide.src;
-            portfolioViewerImage.alt = `Slide ${currentPortfolioSlide + 1} portofolio Brandingin: ${slide.title}`;
             portfolioViewerCount.textContent = `${String(currentPortfolioSlide + 1).padStart(2, '0')} / ${portfolioSlides.length}`;
             portfolioViewerTitle.textContent = slide.title;
             portfolioViewerDesc.textContent = slide.desc;
-        };
-        const openPortfolioSlide = (index, trigger) => {
-            previousFocus = trigger || document.activeElement;
-            renderPortfolioSlide(index);
-            portfolioViewer.classList.add('show');
-            portfolioViewer.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            portfolioViewerClose.focus();
-        };
-        const closePortfolioViewer = () => {
-            portfolioViewer.classList.remove('show');
-            portfolioViewer.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-            if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
-        };
-        document.querySelectorAll('.portfolio-slide').forEach(card => card.addEventListener('click', () => openPortfolioSlide(Number(card.dataset.slide), card)));
-        document.getElementById('portfolioViewerPrev').addEventListener('click', () => renderPortfolioSlide(currentPortfolioSlide - 1));
-        document.getElementById('portfolioViewerNext').addEventListener('click', () => renderPortfolioSlide(currentPortfolioSlide + 1));
-        portfolioViewerClose.addEventListener('click', closePortfolioViewer);
-        portfolioViewer.addEventListener('click', event => { if (event.target === portfolioViewer) closePortfolioViewer(); });
-        document.addEventListener('keydown', event => {
-            if (!portfolioViewer.classList.contains('show')) return;
-            if (event.key === 'Escape') closePortfolioViewer();
-            if (event.key === 'ArrowLeft') renderPortfolioSlide(currentPortfolioSlide - 1);
-            if (event.key === 'ArrowRight') renderPortfolioSlide(currentPortfolioSlide + 1);
+        }
+
+        document.querySelectorAll('.portfolio-slide').forEach(card => {
+            card.addEventListener('click', () => {
+                const index = Number(card.dataset.slide);
+                renderPortfolioSlide(index);
+                portfolioViewer.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
         });
 
+        document.getElementById('portfolioViewerPrev').addEventListener('click', () => renderPortfolioSlide(currentPortfolioSlide - 1));
+        document.getElementById('portfolioViewerNext').addEventListener('click', () => renderPortfolioSlide(currentPortfolioSlide + 1));
+        portfolioViewerClose.addEventListener('click', () => {
+            portfolioViewer.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+
+        // Chatbot Widget Logic
         const chatbotToggler = document.getElementById('chatbotToggler');
         const chatPopup = document.getElementById('chatPopup');
         const closeChat = document.getElementById('closeChat');
@@ -1648,14 +1493,10 @@
 
         chatbotToggler.addEventListener('click', () => {
             chatPopup.classList.toggle('show');
-            if (chatPopup.classList.contains('show')) {
-                chatInput.focus();
-            }
+            if (chatPopup.classList.contains('show')) chatInput.focus();
         });
 
-        closeChat.addEventListener('click', () => {
-            chatPopup.classList.remove('show');
-        });
+        closeChat.addEventListener('click', () => chatPopup.classList.remove('show'));
 
         function appendMessage(text, sender) {
             const msgDiv = document.createElement('div');
@@ -1667,47 +1508,32 @@
 
         function getBotResponse(userText) {
             const text = userText.toLowerCase();
-            if (text.includes('paket') || text.includes('harga') || text.includes('basic') || text.includes('medium') || text.includes('gold')) {
-                return "Kami menyediakan 3 pilihan paket terbaik:\n1. Paket Basic (Rp 400.000): 4 Konten, Basic Editing, Copywriting.\n2. Paket Medium (Rp 600.000): 4 Reels & 4 Feeds, Content Plan.\n3. Paket Gold (Rp 1.200.000): 10 Konten + Landing Page + Desain Logo & Branding!\n\nMau pesan atau konsultasi paket yang mana?";
-            } else if (text.includes('transport') || text.includes('ongkir') || text.includes('jarak') || text.includes('km')) {
-                return "Ketentuan transport tim kami:\n- Jarak < 5 km dari lokasi tim: FREE (Gratis)\n- Jarak > 5 km: Rp 5.000 / km\nFleksibel untuk kontrak harian maupun mingguan!";
-            } else if (text.includes('whatsapp') || text.includes('wa') || text.includes('hubungi') || text.includes('pesan')) {
-                window.open('https://wa.me/6281234567890?text=Halo%20Brandingin,%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20digital%20marketing.', '_blank');
-                return "Tentu! Kami telah mengarahkan Anda ke WhatsApp resmi Brandingin agar bisa langsung terhubung dengan tim kami. 🚀";
-            } else if (text.includes('tim') || text.includes('founder') || text.includes('siapa')) {
-                return "Brandingin didukung oleh 6 talenta profesional berpengalaman: Nur Liani (Founder), Abyan Dzakwan (Creative Director), Yose Aprian (Web Developer), Sinta Andriani (Social Media), Mika Medi (Videographer), dan Aura Aulia (Brand Designer).";
-            } else if (text.includes('brand') || text.includes('klien') || text.includes('portofolio')) {
-                return "Kami telah menangani berbagai brand sukses seperti CopyCat, UMN Consulting, Cnailss.co, Furvit Pet Indonesia, Niken Printing, DIBA Indonesia, UMN Digital Learning, Warkop Mbok Sarijem, Bixartistic, Karimata Ice Cream, Safi Travel, Amanasnack, Cattybone Cat House, dan Pazar Seasonings!";
-            } else {
-                return "Pertanyaan bagus! Untuk informasi lebih lanjut atau pemesanan khusus, Anda bisa langsung klik tombol Hubungi WhatsApp kami di pojok kanan atas atau ketik 'Info Paket' / 'WhatsApp'.";
+            if (text.includes('paket') || text.includes('harga')) {
+                return "Pilihan paket kami:\n1. Basic (Rp 400.000)\n2. Medium (Rp 600.000)\n3. Gold (Rp 1.200.000)\n\nMau konsultasi paket yang mana?";
+            } else if (text.includes('transport') || text.includes('ongkir')) {
+                return "Transport:\n- Jarak < 5 km: GRATIS\n- Jarak > 5 km: Rp 5.000 / km.";
+            } else if (text.includes('whatsapp') || text.includes('wa')) {
+                window.open('https://wa.me/6281234567890', '_blank');
+                return "Mengarahkan ke WhatsApp kami...";
             }
+            return "Terima kasih! Hubungi kami via WhatsApp di pojok kanan atas untuk fast respon ya.";
         }
 
         function sendMessage() {
             const text = chatInput.value.trim();
             if (!text) return;
-            
             appendMessage(text, 'user');
             chatInput.value = '';
-
-            setTimeout(() => {
-                const response = getBotResponse(text);
-                appendMessage(response, 'bot');
-            }, 600);
+            setTimeout(() => appendMessage(getBotResponse(text), 'bot'), 500);
         }
 
         function sendQuickReply(replyText) {
             appendMessage(replyText, 'user');
-            setTimeout(() => {
-                const response = getBotResponse(replyText);
-                appendMessage(response, 'bot');
-            }, 600);
+            setTimeout(() => appendMessage(getBotResponse(replyText), 'bot'), 500);
         }
 
         function handleKeyPress(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
+            if (e.key === 'Enter') sendMessage();
         }
     </script>
 </body>
